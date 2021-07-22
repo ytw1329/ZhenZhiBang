@@ -1,0 +1,260 @@
+
+{#{% extends 'manager/base.html' %}#}
+{% block title %}
+<title>志愿者信息</title>
+    <head>
+        <style>
+            *{margin:0;padding:0;}
+    .img{
+        /*margin: 0 50% 0 20%;width: 30%;background: darkblue;position: absolute;*/
+        width: 30%;height: 150px;margin: 0 55% 0 15%;position: absolute;
+    }
+
+    .button_div{
+        /*margin: 0 5% 0 55%;width: 40%;background: red;position: absolute;*/
+        width: 40%;height: 150px;margin:0 10% 0 50%;position: absolute;
+    }
+
+    .button{
+        color: palevioletred;
+        background-color: #f3f3f3;
+        border-color: #f3f3f3;
+        border-radius: 12px;
+        padding: 10px 10px;
+        text-align: center;
+        font-size: 15px;
+        margin: 0 auto;
+        text-decoration: none;
+        display: inline-block;
+        }
+
+            .body {
+            {#background-image: url(/Content/z4.jpg);#}
+            background-size: cover;
+        }
+        table {
+            margin-top: 30px;
+            font-family: STKaiti;
+            border-collapse: collapse;
+            border: 1px dashed white;
+        }
+
+            table tbody {
+                display: block;
+                height: 350px;
+                overflow-y: scroll;
+            }
+
+
+            table thead,
+            tbody tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+        table tr td:nth-child(9) {
+            background-color:white;
+        }
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            letter-spacing: 15px;
+            color: gray;
+            font-family: STKaiti;
+        }
+        #all-requst {
+            margin-top: 30px;
+            font-family: STKaiti;
+        }
+
+            table tr:nth-child(even) {
+                background-color: #FFFFFF;
+            }
+            table tr:nth-child(odd) {
+                background-color: #E6E6FA;
+            }
+            table th:nth-child(even) {
+                background-color: #DDDDDD;
+            }
+
+        table th:nth-child(odd) {
+            background-color: #CCCCFF;
+        }
+
+        table, thead, tbody {
+            width: 1200px;
+        }
+
+        th {
+            color: white;
+            height: 60px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: lighter;
+            letter-spacing: 2px;
+            border-radius:5px;
+        }
+        tr, td {
+            border: 1px dotted white;
+            height: 30px;
+            text-align: center;
+        }
+
+        tbody {
+            font-size: 1em;
+            padding: 20px;
+        }
+        table tr:hover {
+            background-color: #CCDDFF;
+        }
+
+        #accept {
+            text-align: center;
+            background-color: #CCDDFF;
+            border: none;
+            border-radius: 30px 10px;
+            width: 60px;
+            height: 30px;
+            margin-left: 20px;
+        }
+
+            /*搜索框6*/
+            {#.bar6 {background: rgb(245,212,217);}#}
+            .bar6 input {
+                border: 2px solid lightpink;
+                border-radius: 5px;
+                background: transparent;
+                top: 0;
+                right: 0;
+            }
+            .bar6 button {
+                background: pink;
+                border-radius: 0 5px 5px 0;
+                border-color: rgb(255,192,203);
+                width: 60px;
+                top: 0;
+                right: 0;
+            }
+            .bar6 button:before {
+                content: "搜索";
+                font-size: 13px;
+                color: deeppink;
+            }
+    * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-weight: 500;
+                font-family: "Microsoft YaHei","宋体","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif, FreeSans, Arimo;
+            }
+
+            #container {
+                width: 500px;
+                height: 820px;
+                margin: 0 auto;
+            }
+            div.search {padding: 30px 0;}
+
+            form {
+                position: relative;
+                width: 300px;
+                margin: 0 auto;
+            }
+
+            input, buttonfind {
+                border: none;
+                outline: none;
+            }
+
+            input {
+                width: 100%;
+                height: 42px;
+                padding-left: 13px;
+            }
+
+            .buttonfind {
+                height: 42px;
+                width: 42px;
+                cursor: pointer;
+                position: absolute;
+            }
+        </style>
+
+    </head>
+{% endblock %}
+
+{% block content %}
+
+    <script src=""></script>
+
+    <div>
+     <div class="img">
+            <img src="/static/images/zzb.jpg" width="100%" height="150px">
+     </div>
+     <div class="button_div">
+     <br><br><br><br>
+            <a href="{% url 'Manageshowdata' %}"><button class="button">浏览志愿者信息</button></a>
+            <a href="{% url 'Manageadd' %}"><button class="button">添加志愿者信息</button></a>
+            <a href="{% url 'Manageadddata' %}"><button class="button">发布活动</button></a>
+            <a href="{% url 'upload' %}"><button class="button">走失儿童发布</button></a>
+            <a href="{% url 'childshow' %}"><button class="button">走失儿童信息</button></a>
+            <a href="{% url 'ManageShenHe' %}"><button class="button">活动审核</button></a>
+
+            <a href="{% url 'logoutok' %}">
+                {% if request.session.guanliyuan_user.name %}
+                    <button style="margin-left: 76%" class="button">{{ request.session.guanliyuan_user.name }}
+                    退出
+                {% endif %}</button>
+            </a><br>
+     </div>
+</div>
+    <br><br><br><br><br><br><br><br><br>
+<hr>
+    <br>
+
+    <center>
+
+    <div class="search bar6">
+        <form action="{% url 'Managefinddata' %}" method="post">
+            {% csrf_token %}
+            <input type="text"  name="find" placeholder="请输入您要搜索的姓名...">
+            <button type="submit" class="buttonfind"></button>
+        </form>
+    </div>
+
+
+    <div class="body">
+        <table border="1" style="">
+                <thead>
+                <tr><td>序号</td>
+                    <td>姓名</td>
+                    <td>密码</td>
+                    <td>电话</td>
+                    <td>管理员操作</td>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for h in datas %}
+                    <tr>
+                        <td>{{h.id  }}</td>
+                        <td>{{h.name  }}</td>
+                        <td>{{h.password  }}</td>
+                        <td>{{h.tel  }}</td>
+                        <td>
+                            <a href="{% url 'Manageedit' h.id %} ">编辑</a>
+                            <a href="{% url 'Managedelet' h.id%}">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+    </div>
+    </center>
+
+{% endblock %}
+

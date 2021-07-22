@@ -1,0 +1,276 @@
+*{margin:0;padding:0;}
+#max{
+    width: 75%;height: 750px;align-items: center;margin: 5% auto;margin-top: 0%;
+}
+.re{
+    position: relative;height: 700px;
+}
+.re ul{
+    list-style-type:none ;
+}
+.re ul>li{
+    width: 100%;height: 600px;position: absolute;transition: 1s;opacity: 0;
+}
+.re ul>li img{
+    width: 100%;height: 700px;border-radius: 10%;border: 5px solid pink;
+}
+#max ol {
+    position: relative;display: grid;grid-template-columns: repeat(5,75px);
+    grid-template-rows: auto;grid-gap: 1em;gap: 1em;
+    float: right;margin-top: 650px;
+    list-style: none;top:0;left:0;
+}
+#max ol li {
+    width: 10px;height: 10px;font-size: 15px;
+    line-height: 20px;float: left;
+    text-align: center;border-radius: 2em;
+    border: 3px solid #999999;
+}
+a{text-decoration:none;}
+
+*{margin:0;padding:0;}
+#main{
+    width: 1000px;height: 660px;
+    overflow: hidden;
+    /* position: absolute; left:14.0% ; */
+    margin-top:20px;
+    border-radius: 20px;
+}
+#all-picture{
+    height:660px;
+    width: calc(1000px * 5);
+    /* 如果加图片自行添加数目我这里5张图片所以宽度为5张图片横排的总尺寸，注意添加图片数目之后，动画内的参数也要相应的改变 */
+    animation: switch ease 15s infinite ;z-index: 9;
+}
+
+			#all-picture img{
+				width:1000px;height: 540px;float: left;
+			}
+			#all-picture:hover{animation-play-state: paused;}
+			@keyframes switch{
+				 /* 每个图片切换有两个阶段：位移切换和静置。所以中间的效果可以任意定制，我这里在每个阶段切换时都有一定的时间来静置 */
+				0%,10%{margin-left: 0;}
+				20%,30%{margin-left: -1000px;}
+				40%,50%{margin-left: -2000px;}
+				60%,70%{margin-left: -3000px;}
+				80%,90%{margin-left: -4000px;}
+				100%{margin-left: 0px;}
+
+			}
+			@keyframes picture1{
+				0%{margin-left: -4000px;}
+				100%{margin-left: 0px;}
+			}
+			@keyframes picture2{
+				0%{margin-left: 0px;}
+				100%{margin-left: -1000px}
+			}
+			@keyframes picture3{
+				 0%{margin-left: -1000px;}
+				100%{margin-left:-2000px}
+			}
+			@keyframes picture4{
+				0%{margin-left: -2000px;}
+				100%{margin-left:-3000px}
+			}
+			@keyframes picture5{
+				0%{margin-left: 0px;}
+				100%{margin-left:-4000px}
+			}
+			#a1:hover ~ #all-picture{animation: picture1 ease 0.5s forwards;}
+			#a2:hover ~ #all-picture{animation: picture2 ease 0.5s forwards;}
+			#a3:hover ~ #all-picture{animation: picture3 ease 0.5s forwards;}
+			#a4:hover ~ #all-picture{animation: picture4 ease 0.5s forwards;}
+			#a5:hover ~ #all-picture{animation: picture5 ease 0.5s forwards;}
+			.num1{width: 200px;height: 40px;position: absolute;margin-top:540px;left: 0px;}
+			.num2{width: 200px;height: 40px;position: absolute;margin-top:540px;left: 200px;}
+			.num3{width: 200px;height: 40px;position: absolute;margin-top:540px;left: 400px;}
+			.num4{width: 200px;height: 40px;position: absolute;margin-top:540px;left: 600px;}
+			.num5{width: 200px;height: 40px;position: absolute;margin-top:540px;left: 800px;}
+			.num1,.num2,.num3,.num4,.num5{text-align: center;line-height: 40px;}
+			 a:hover{background-color:black;opacity:1;color: yellow;font-size: large;font-weight: bolder;}
+			a{opacity:0.5;color:white;background-color: #000000;}
+			 a:hover ~ #all-picture:hover{animation-play-state: paused;}
+
+/* 粉色列表 */
+			.maindiv{
+                width:1400px;
+            padding:10px;
+            overflow:hidden; /*关键*/
+            border:5px dashed pink;
+            }
+
+
+            .leftdiv{
+            float:left;
+            width:700px;
+            /* background-color:#CC6633; */
+            }
+
+            .rightdiv{
+            float:right;
+            width:700px;
+            /* background-color:#CC66FF; */
+
+            }
+
+            .centerdiv{
+            float:left;
+			position: center;
+            /* width:50px; */
+            border-right: 5px dashed pink;
+            padding-bottom:1600px;  /*关键*/
+            margin-bottom:-1600px;  /*关键*/
+            }
+/* 粉框按钮 */
+		.button2 {
+			background-color:pink;
+			border-radius: 20px;
+			border: none;
+    		color: black;
+    		padding: 13px 250px;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-size: 16px;
+    		/* margin-left: 20px;
+			margin-top: 600px; */
+    		cursor: pointer;
+		}
+		.button4 {
+			background-color:pink;
+			border-radius: 20px;
+			border: none;
+    		color:black;
+    		padding: 15px 250px;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-size: 16px;
+    		margin-left: 20px;
+			margin-top: 1px;
+    		cursor: pointer;
+		}
+		.button5 {
+			background-color:white;
+			border-radius: 20px;
+			border: none;
+    		color:black;
+    		padding: 13px 200px;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-size: 16px;
+    		cursor: pointer;
+		}
+		.button6 {
+    		background-color: #4CAF50;
+			border-radius: 20px;
+    		border: none;
+    		color: white;
+    		padding: 15px 320px;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-size: 20px;
+			margin-top: 20px;
+    		cursor: pointer;
+		}
+		.button7 {
+    		background-color: white;
+    		color: black;
+    		border: 2px solid black;
+		}
+/* 3D旋转图册 */
+        .Container {
+            margin: 4% auto;
+            width: 310px;
+            height: 200px;
+            position: relative;
+            perspective: 2000px;
+        }
+
+        #carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotation 20s infinite linear;
+        }
+
+        #carousel:hover {
+            animation-play-state: paused;
+        }
+
+        #carousel figure {
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            left: 10px;
+            top: 10px;
+            overflow: hidden;
+        }
+
+        .img {
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+            width: 80%;
+            height: 100%;
+
+        }
+
+        .img:hover {
+            filter: grayscale(0);
+            transform: scale(1.2, 1.2);
+        }
+
+        #carousel figure:nth-child(1) {
+            transform: rotateY(0deg) translateZ(388px);
+        }
+
+        #carousel figure:nth-child(2) {
+            transform: rotateY(60deg) translateZ(388px);
+        }
+
+        #carousel figure:nth-child(3) {
+            transform: rotateY(120deg) translateZ(388px);
+        }
+
+        #carousel figure:nth-child(4) {
+            transform: rotateY(180deg) translateZ(388px);
+        }
+
+        #carousel figure:nth-child(5) {
+            transform: rotateY(240deg) translateZ(388px);
+        }
+
+        #carousel figure:nth-child(6) {
+            transform: rotateY(300deg) translateZ(388px);
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+/* 捐款内容 */
+		.p1{
+			font-size: 40px;font-family: "LiSu";color: #000000;font-weight: bold;padding: 20px
+		}
+		.p2{
+			font-size: 70px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:	#CE0000;font-weight: bold;padding: 10px
+		}
+		.p3{
+			font-size: 30px;font-family: "LiSu";color: #000000;font-weight: bold;padding: 20px
+		}
+		.p4{
+			font-size: 60px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color: 	#CE0000;font-weight: bold;padding: 20px
+		}
+		p.dashed {border-style: dashed;height: 400px;width: 750px;border-color: black;border-width: 5px}
+        marquee {
+            font-size: 20px;
+            color: black;
+        }

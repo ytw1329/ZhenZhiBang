@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>关于罕见病</title>
+    <style type="text/css">
+    /* logo */
+   body{
+        background-image: url(/static/image/背景1.jpg);
+        background-repeat: no-repeat;
+        background-size: 603px 250px;
+        background-position: 15px 30px;
+		float: left;
+        }
+    /* 按钮 */
+.button {
+        background-color: pink;
+        border: none;
+        border-radius: 30px;
+        color: black;
+        padding: 25px 22px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        /* margin: 4px 2px; */
+        position: absolute;
+        /* margin-left:50%;
+        margin-top: 10%; */
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    }
+.button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+/* 左右框架 */
+    .maindiv{
+            width:1200px;
+            padding:10px;
+            overflow:hidden; /*关键*/
+            border:5px dashed white;
+            border-radius:25px;
+            margin-left: 200px;
+            }
+
+
+            .leftdiv{
+            float:left;
+            width:600px;
+            /* background-color:#CC6633; */
+            font-size: 23px;
+            font-weight: bold;
+            color: darkblue;
+            }
+
+            .rightdiv{
+            float:right;
+            width:600px;
+            /* background-color:#CC66FF; */
+            
+            }
+
+            .centerdiv{
+            float:left;
+            position: center;
+            /* width:50px; */
+            border-right: 5px dashed white;
+            padding-bottom:1600px;  /*关键*/
+            margin-bottom:-1600px;  /*关键*/
+            }
+            p.double {border-style:double;
+                border-radius:25px;
+                height: 180px;
+                width: 500px;
+                border-color: pink;
+                font-size: 20px;
+                font-weight: bold;
+                color: black;
+            }
+    </style>
+</head>
+<style>
+            #nav { width:310px; height: 400px; border: 1px solid #D4CD49; position:fixed;left:84%;top:40% }
+            .fuchuang{background-color: white;font-size: 20px}
+            .pic{text-align: center; font-size:10px;line-height:10px;color: black;font-size: 20px}
+        .smallimg{height: 230px;width: 300px;}
+      .text{
+          font-size: 30px;
+      }
+        </style>
+        <div id="nav" class="fuchuang">
+            <div class="pic">
+                <p>公益小贴士</p>
+                <div class="text"><p>光盘行动</p></div>
+                <p>吃多吃少</p>
+                <p>光盘正好</p>
+            </div>
+        <img class="smallimg" src="/static/images/浮窗/食物.png">
+    </div>
+<div>
+    <button class="button button2" style=" margin-left:660px;margin-top: 145px; " onclick="window.location.href='{% url '罕见病' %}'">
+        关于罕见病</button>
+    <button class="button button2" style=" margin-left:880px;margin-top: 145px;" onclick="window.location.href='{% url '常见罕见病' %}'">
+        常见罕见病</button>
+    <button class="button button2" style=" margin-left:1100px;margin-top: 145px;" onclick="window.location.href='{% url '相关政策' %}'">
+        相关政策</button>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;
+
+    <button class="button button2" style=" margin-left:1100px;margin-top: 145px;" onclick="window.location.href='{% url 'index' %}'">
+        返回首页</button>
+</div>
+<div class="maindiv" style="margin-top: 265px;">
+    <div class="leftdiv">什么是罕见病
+            <p class="double">
+                &nbsp;&nbsp;&nbsp;&nbsp;是指发病率很低，很少见的疾病。一般为慢性、严重的疾病，常常危及生命。
+                根据世界卫生组织的定义，罕见病患病人数占总人口的0.65‰~1‰的疾病。
+                根据疾病症状及发病机制进行分类，罕见病有十几个大类，约7000种。<br>&nbsp;
+            </p>
+            我国罕见病的治疗措施
+            <p class="double">
+                &nbsp;&nbsp;&nbsp;&nbsp;第一级:孕前进行优生四项、染色体检查等。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;第二级:怀孕期间检查，怀孕两个月到六个月期间可以检测血友病、进行性肌营养不良、白化病等罕见病。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;第三级:新生儿筛查，出生后抽第一滴血，就能查苯丙酮尿症等罕见病。<br>&nbsp;
+            </p>
+    </div>
+    <div class="centerdiv"></div>
+        <div class="rightdiv">
+                <img src="/static/image/男医生.png">
+        </div>
+</div>
+</boby>
+</html>

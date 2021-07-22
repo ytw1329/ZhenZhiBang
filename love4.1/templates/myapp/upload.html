@@ -1,0 +1,364 @@
+{#{% extends 'manager/base.html' %}#}
+{% block title %}
+<title>走失儿童发布</title>
+    <head>
+{#    <link rel="stylesheet" type="text/css" href="./static/css/log_reg.css">#}
+    <style>
+
+        *{margin:0;padding:0;}
+.img{
+    /*margin: 0 50% 0 20%;width: 30%;background: darkblue;position: absolute;*/
+    width: 30%;height: 150px;margin: 0 55% 0 15%;position: absolute;
+}
+
+.button_div{
+    /*margin: 0 5% 0 55%;width: 40%;background: red;position: absolute;*/
+    width: 40%;height: 150px;margin:0 10% 0 50%;position: absolute;
+}
+
+.button{
+    color: palevioletred;
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+    border-radius: 12px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 15px;
+    margin: 0 auto;
+    text-decoration: none;
+    display: inline-block;
+    }
+
+        *{margin:0;padding:0;}
+
+* {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font: 16px/20px microsft yahei;
+        }
+        .wrap {
+            width: 100%;
+            height: 100%;
+            padding: 5% 0;
+            position: fixed;
+            opacity: 0.8;
+            background: linear-gradient(to bottom right,#f2dbe7, #fffbd6);
+            background: -webkit-linear-gradient(to bottom right,#50a3a2,#53e3a6);
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .container h1 {
+            text-align: center;
+            color: #666666;
+            font-weight: 500;
+        }
+        .container input {
+            width: 320px;
+            display: block;
+            height: 36px;
+            border: 0;
+            outline: 0;
+            padding: 6px 10px;
+            line-height: 24px;
+            margin: 20px auto;
+            -webkit-transition: all 0s ease-in 0.1ms;
+            -moz-transition: all 0s ease-in 0.1ms;
+            transition: all 0s ease-in 0.1ms;
+        }
+        .container input[type="text"] , .container input[type="password"]  {
+            background-color: #FFFFFF;
+            font-size: 16px;
+            color: deeppink;
+        }
+        .container input[type='submit'] {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #666666;
+            background-color: #FFFFFF;
+        }
+        .container input[type='reset'] {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #666666;
+            background-color: #FFFFFF;
+        }
+        .container input:focus {
+            width: 400px;
+        }
+        .container input[type='submit']:hover {
+            cursor: pointer;
+            width: 400px;
+        }
+        .container input[type='reset']:hover {
+            cursor: pointer;
+            width: 400px;
+        }
+        .to_login{
+            color: #a7c4c9;
+        }
+        .text{
+            color: #666666;
+        }
+        .wrap ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            z-index: -20;
+        }
+
+        .wrap ul li {
+            list-style-type: none;
+            display: block;
+            position: absolute;
+            bottom: -120px;
+            width: 15px;
+            height: 15px;
+            z-index: -8;
+            border-radius: 50%;
+            box-shadow: inset -30px -30px 75px rgba(253, 91, 120, .2),
+            inset 0px 0px 5px rgba(226, 164, 197, .5),
+            inset -3px -3px 5px rgba(250, 250, 250, .5),
+            0 0 20px rgba(255, 255, 255, .75);
+            background-color:rgba(255, 255, 255, 0.15);
+            animotion: square 25s infinite;
+            -webkit-animation: square 25s infinite;
+        }
+        .wrap ul li:nth-child(1) {
+            left: 0;
+            animation-duration: 10s;
+            -moz-animation-duration: 10s;
+            -o-animation-duration: 10s;
+            -webkit-animation-duration: 10s;
+        }
+        .wrap ul li:nth-child(2) {
+            width: 40px;
+            height: 40px;
+            left: 10%;
+            animation-duration: 15s;
+            -moz-animation-duration: 15s;
+            -o-animation-duration: 15s;
+            -webkit-animation-duration: 11s;
+        }
+        .wrap ul li:nth-child(3) {
+            left: 20%;
+            width: 25px;
+            height: 25px;
+            animation-duration: 12s;
+            -moz-animation-duration: 12s;
+            -o-animation-duration: 12s;
+            -webkit-animation-duration: 12s;
+        }
+        .wrap ul li:nth-child(4) {
+            width: 50px;
+            height: 50px;
+            left: 30%;
+            -webkit-animation-delay: 3s;
+            -moz-animation-delay: 3s;
+            -o-animation-delay: 3s;
+            animation-delay: 3s;
+            animation-duration: 12s;
+            -moz-animation-duration: 12s;
+            -o-animation-duration: 12s;
+            -webkit-animation-duration: 12s;
+        }
+        .wrap ul li:nth-child(5) {
+            width: 60px;
+            height: 60px;
+            left: 40%;
+            animation-duration: 10s;
+            -moz-animation-duration: 10s;
+            -o-animation-duration: 10s;
+            -webkit-animation-duration: 10s;
+        }
+        .wrap ul li:nth-child(6) {
+            width: 75px;
+            height: 75px;
+            left: 50%;
+            -webkit-animation-delay: 7s;
+            -moz-animation-delay: 7s;
+            -o-animation-delay: 7s;
+            animation-delay: 7s;
+        }
+        .wrap ul li:nth-child(7) {
+            left: 60%;
+            width: 30px;
+            height: 30px;
+            animation-duration: 8s;
+            -moz-animation-duration: 8s;
+            -o-animation-duration: 8s;
+            -webkit-animation-duration: 8s;
+        }
+        .wrap ul li:nth-child(8) {
+            width: 90px;
+            height: 90px;
+            left: 70%;
+            -webkit-animation-delay: 4s;
+            -moz-animation-delay: 4s;
+            -o-animation-delay: 4s;
+            animation-delay: 4s;
+        }
+        .wrap ul li:nth-child(9) {
+            width: 50px;
+            height: 50px;
+            left: 80%;
+            animation-duration: 20s;
+            -moz-animation-duration: 20s;
+            -o-animation-duration: 20s;
+            -webkit-animation-duration: 20s;
+        }
+        .wrap ul li:nth-child(10) {
+            width: 75px;
+            height: 75px;
+            left: 90%;
+            -webkit-animation-delay: 6s;
+            -moz-animation-delay: 6s;
+            -o-animation-delay: 6s;
+            animation-delay: 6s;
+            animation-duration: 30s;
+            -moz-animation-duration: 30s;
+            -o-animation-duration: 30s;
+            -webkit-animation-duration: 30s;
+        }
+
+
+        @keyframes square {
+            0%  {
+                -webkit-transform: translateY(0);
+                transform: translateY(0)
+            }
+            100% {
+                bottom: 400px;
+                -webkit-transform: translateY(-500);
+                transform: translateY(-500)
+            }
+        }
+        @-webkit-keyframes square {
+            0%  {
+                -webkit-transform: translateY(0);
+                transform: translateY(0)
+            }
+            100% {
+                bottom: 400px;
+                -webkit-transform: translateY(-500);
+                transform: translateY(-500)
+            }
+        }
+
+    </style>
+
+    </head>
+{% endblock %}
+
+{% block content %}
+    <div>
+     <div class="img">
+            <img src="/static/images/zzb.jpg" width="100%" height="150px">
+     </div>
+     <div class="button_div">
+     <br><br><br><br>
+            <a href="{% url 'Manageshowdata' %}"><button class="button">浏览志愿者信息</button></a>
+            <a href="{% url 'Manageadd' %}"><button class="button">添加志愿者信息</button></a>
+            <a href="{% url 'Manageadddata' %}"><button class="button">发布活动</button></a>
+            <a href="{% url 'upload' %}"><button class="button">走失儿童发布</button></a>
+            <a href="{% url 'childshow' %}"><button class="button">走失儿童信息</button></a>
+            <a href="{% url 'ManageShenHe' %}"><button class="button">活动审核</button></a>
+
+            <a href="{% url 'logoutok' %}">
+                {% if request.session.guanliyuan_user.name %}
+                    <button  style="margin-left: 76%" class="button">{{ request.session.guanliyuan_user.name }}
+                    退出
+                {% endif %}</button>
+            </a><br>
+     </div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+<hr>
+
+<div class="wrap">
+    <div class="container">
+
+<center>
+<div style="height: 160px">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+{#        <h1>上传图片页面</h1>#}
+        <table cellpadding="5px">
+                    <tr>
+{#                        <td>请先上传图片再添加图片</td>#}
+                        <td><input type="file" name="img"></td>
+                        <td><button>上传</button></td>
+                    </tr>
+
+                <td><strong style="color: red">{{ error }}</strong></td>
+
+        </table>
+    </form>
+</div>
+<div>
+    <form action="{% url 'insertchild' %}" method="post">
+        {% csrf_token %}
+        <table cellpadding="5px" >
+            <form action=""  method="post" enctype="multipart/form-data">
+{#                    <td>添加图片</td>#}
+                <tr>
+{#                        <td>图片</td>#}
+                        <td><input type="file" name="img"></td>
+                    </tr>
+                <tr>
+                <td><strong style="color: red">{{ error }}</strong></td>
+            </tr>
+            </form>
+                    <tr>
+{#                        <td>姓名：</td>#}
+                        <td><input style="height: 25px" type="text" name="name" placeholder="姓名"/></td>
+                    </tr>
+                    <tr>
+{#                        <td>性别：</td>#}
+                        <td><input style="height: 25px" type="text" name="title" placeholder="性别" /></td>
+                    </tr>
+                    <tr>
+{#                        <td>出生日期：</td>#}
+                        <td><input style="height: 25px"  type="text" name="context" placeholder="出生日期"/></td>
+                    </tr>
+
+                      <tr>
+{#                        <td>失踪地点：</td>#}
+                        <td><input  style="height: 25px" type="text" name="place" placeholder="失踪地点"/></td>
+                    </tr>
+                    <tr>
+{#                        <td>失踪日期：</td>#}
+                        <td><input  style="height: 25px" type="text" name="time" placeholder="失踪日期"/></td>
+                    </tr>
+                      <tr>
+{#                        <td>详细信息：</td>#}
+                        <td><input style="height: 25px" type="text" name="Organizer" placeholder="详细信息"/></td>
+                    </tr>
+
+                <tr>
+                <td>
+                    <input style="height: 30px" type="submit" value="确认发布"/>
+                    <input style="height: 30px" type="reset" value="重置信息"/>
+
+                </td>
+
+                <td><strong style="color: red">{{ error }}</strong></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div style="text-align: center;color: #2b542c;font-size: 20px;">
+
+</div>
+</center>
+    </div>
+
+</div>
+
+{% endblock %}

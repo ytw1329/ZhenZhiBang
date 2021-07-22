@@ -1,0 +1,251 @@
+{#{% extends 'myapp/base.html' %}#}
+{% block title %}
+<head>
+    <meta charset="UTF-8">
+    <title>中国儿童罕见病救助基金</title>
+</head>
+<style>
+
+    /* 整个外层容器的宽高 */
+    .nav {
+        width: 50%;height: 100px;margin:1% 5% 10% 45%;position: absolute;
+    }
+    /* 整个导航栏的宽高 */
+    .nav .menu {
+        width: 100%;
+        /* 导航栏居中 */
+        margin: 0 auto;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .nav li {
+        /* 对其菜单项左浮动，呈横向排列 */
+        float: left;
+        list-style-type:none;
+    }
+    /* 设置菜单项里的文字内容 */
+    .nav ul li a:link,
+    .nav ul li a:visited{
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        text-align: center;
+        background: pink;
+    }
+    /* 设置菜单项里文字点击的效果颜色 */
+    .nav ul li a:hover,
+    .nav ul li a:active {
+        background: lightpink;
+    }
+    /* 隐藏二级菜单 */
+    .nav ul li ul {
+        display: none;
+        position: absolute;
+        z-index: 10;
+    }
+    /* 让二级菜单在点击一级菜单项时才会出现 */
+    .nav ul li:hover ul {
+        display: block;
+    }
+    /* 清除二级菜单的浮动 */
+    .nav ul li ul li {
+        float: none;
+        background: lightpink;
+    }
+
+    .pic{
+        {#margin-left: 12%;#}
+        text-align: right;
+    }
+    .fuchuang{
+        background-image: url("/static/images/7.png");
+        background-color: white;
+        text-align: center;
+    }
+    .body1{
+        text-align: center;
+    }
+    .all{
+        background-color: rgba(255,255,255,0);
+        border: 4px solid pink;
+        border-radius: 15px;
+        margin: 60px;
+    }
+    .body{
+        text-align: left;
+        flex-direction: row;
+        display: flex;
+    }
+    .banner-introduction{
+        margin-right: 150px;
+        margin-left: 150px;
+    }
+    .body1{
+        text-align: center;
+    }
+    .tel{
+        font-size: medium;
+        text-align: center;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+       <div class="pic" style="width: 30%;height: 100px;margin: 0 60% 0 10%;position: absolute;">
+        <img src="/static/image/zzb.jpg" width="100%" height="150px">
+    </div>
+ <div class="nav">
+        <br><br>
+            <!-- 整个导航栏 -->
+            <ul class="menu">
+                <!-- 一级菜单 -->
+                <li>
+                    <a href="{% url 'index' %}">首页</a>
+                    <!-- 二级菜单 -->
+{#                    <ul>#}
+{#                        <li><a href="">我们的伙伴</a></li>#}
+{#                        {% if request.session.love_user.name %}#}
+{##}
+{#                            <li><a href="">志愿活动发布</a></li>#}
+{#                            <li><a href="">志愿活动申请</a></li>#}
+{##}
+{##}
+{#                        {% endif %}#}
+{#                        <li><a href="{% url 'childshow' %}">走失儿童信息预览</a></li>#}
+{#                    </ul>#}
+
+                </li>
+                <li>
+                    <a href="">我们的项目</a>
+                    <ul>
+                        <li><a href="" >公益基金会</a></li>
+                        <li><a href="{% url 'childshow' %}">宝贝回家</a></li>
+                        <li><a href="">关注罕见病</a></li>
+                    </ul>
+                </li>
+                <li> <a href="{% url 'adddata'  %}" >活动浏览/报名</a></li>
+
+                <li>
+{#                    {% if request.session.love_user.name %}#}
+{#                        <a href="{% url 'adddata'  %}"><span>活动浏览/报名</span></a>#}
+{#                    {% endif %}#}
+{#                        <a href="{% url 'dologout' %}"><span>退出登录</span></a>&nbsp;#}
+                </li>
+
+{#                <li><a href="{% url 'managelogin' %}">管理员登录</a></li>#}
+                <li>
+                    {% if request.session.love_user.name %}
+
+                        <a href="">用户名：{{ request.session.love_user.name }}</a>
+{#                    {{ request.session.love_user.name }}#}
+                        <ul>
+                            <form action="{% url 'findpage' %}" method="post" >
+                                {% csrf_token %}
+                                 <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find1"  value="{{ request.session.love_user.name }}" readonly="readonly" />
+{#                                 <button><span>个人中心</span></button>#}
+                                <a href=""><button  type="submit" style="width: 150px; /* 宽度 */
+                                                    height: 50px; /* 高度 */
+                                                    border-width: 0px; /* 边框宽度 */
+                                                    border-radius: 3px; /* 边框半径 */
+                                                    background: lightpink; /* 背景颜色 */
+                                                    outline: none; /* 不显示轮廓线 */
+                                                    font-family: Microsoft YaHei; /* 设置字体 */
+                                                    color: white; /* 字体颜色 */
+                                                    font-size: 17px; /* 字体大小 */"
+ >个人中心</button></a>
+                                </form>
+
+                        </ul>
+
+
+
+                        <li><a href="{% url 'dologout' %}">退出登录</a></li>
+                        {% else %}
+
+                            <a href="{% url 'login' %}"><span>用户登录 </span></a>
+
+
+
+                            <li><a href="{% url 'adminlogin' %}"><span>管理员登录 </span></a></li>
+                        &nbsp;
+
+{#                            <li><a href="{% url 'showdata'  %}"><span>活动浏     览</span></a></li>#}
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+
+
+    <br><br><br><br><br><br><br>
+    <hr>
+
+<div class="all">
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <h1>拜科奇血友病儿童援助项目</h1>
+          <div class="details-label label">
+              <img src="./static/images/标签.png" width="20px">
+	        标签:儿童血友病
+          </div>
+	      <p><p>2015年1月中华慈善总会与拜耳医药保健有限公司共同设立“中华慈善总会拜科奇Co-pay慈善援助项目”。项目旨在通过中华慈善总会、地方慈善机构、医疗保险和患者共同承担血友病治疗的模式，帮助中国甲型血友病患者获得拜科奇的治疗，提高血友病患者的生活质量。
+
+截止2018年12月底，项目已在全国56个省（市区）开展，累计援助患者4550人，累计发放援助资金8272.06万元。
+。</p><p></p><p></p><p></p><p><br/></p>
+
+    </div>
+    <img src="./static/images/爱心.png" width="300px" height="300px">
+</div>
+
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <div class="details-title">
+             <h2>援助模式</h2>
+         </div>
+        <div class="details-item-contend">
+            <p style="text-indent: 0em;"><br/><strong>根据患者购买的拜科奇药品总费用给予10%援助金额<br>
+            无援助上限<br>
+            </strong><br/><strong>援助资金结算方式:患者在医保报销后，再到当地慈善会申请资金援助<br>
+            援助资金结算时间：每月<br>
+            </strong></p>            </strong><br/><strong>项目开展地区查询：<br>
+            <a href="http://www.baikeqi.org/new/index.php?g=portal&m=default&a=index">项目开展地区查询</a> <br>
+            </strong></p>
+        </div>
+    </div>
+</div>
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <div class="details-title">
+             <h2>拜科奇Co-pay项目申请及资金领取流程</h2>
+         </div>
+        <div class="details-item-contend">
+            <img src="/static/images/拜科奇.png" width="800px">
+             <p style="text-indent: 0em;"><strong><br/></strong><strong></strong><br/></p><p style="text-indent: 0em;"><strong><br/></strong><strong></strong>  <br><br><strong></strong></p>                </div>
+        </div>
+    </div><br><br><br><br>
+    <div class="body1">
+        <div>
+        <text>求助电话:010-516247</text><br>
+        <text>周一至周五</text><br>
+        <text>早上8：30-晚上18：30</text><br>
+        <text>地址：北京市100034信箱23号分箱中华慈善总会拜科奇项目工作室</text><br>
+        <text>邮编：100034</text><br>
+            </div>
+    </div>
+    <style>
+        #nav { width:150px; height: 200px; border: 1px solid #D4CD49; position:fixed;left:0;top:30% }
+    </style>
+        <div id="nav" class="fuchuang">
+            <a href="{% url 'money' %}">我要捐款</a>
+        </div>
+    <div class="pic">
+        <img src="./static/images/7.png">
+    </div>
+{#    <div id="nav" class="fuchuang">#}
+{#            <a href="{% url 'goods' %}">我要捐物</a>#}
+{#    </div>#}
+</div>
+
+{% endblock %}

@@ -1,0 +1,221 @@
+{% block title %}
+<title>查询信息</title>
+    <style >
+    .pink{
+        color: pink;
+    }
+.container {
+    position: relative;
+    flex-direction: row;
+    display: flex;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    font-size: 25px;
+    margin-top: 150px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.text{
+            font-size: 50px;
+            text-shadow: 0 0 2px black;
+            color: pink;
+        }
+        .pic{
+            margin-top: 50px;
+            margin-left: 30px;
+            margin-right: 15px;
+        }
+        .all{
+            position: relative;
+            flex-direction: row;
+            display: flex;
+        }
+        .shuru{
+            border: 1px solid #DADADA;
+            color: #888;
+            height: 50px;
+            margin-bottom: 30px;
+            margin-right: 6px;
+            margin-top: 2px;
+            outline: 0 none;
+            padding: 3px 3px 3px 5px;
+            width: 300px;
+            font-size: 20px;
+            line-height: 15px;
+            box-shadow: inset 0px 1px 4px #ECECEC;
+            -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+            -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+        }
+.text{
+    position: relative;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    margin-right: 150px;
+    /* margin-top: 150px; */
+    margin-left: 100px;
+}
+.center {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+	margin-top:-9px;
+}
+button{
+    color: palevioletred;
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+    border-radius: 12px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: inline-block;
+    }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float:left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: palevioletred;
+}
+     .border{
+        position: relative;
+        flex-direction: row;
+        display: flex;
+        border: 4px solid pink;
+        border-radius: 15px;
+        margin: 60px;
+    }
+        ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float:left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: palevioletred;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<img src="/static/images/zzb.jpg" width="40%" height="auto">
+<ul>
+      <li>{% if request.session.love_user.name %}
+        <form action="{% url 'findpage3'  %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find3"  value="{{ request.session.love_user.name }}" readonly="readonly"  />
+        <button><span>我的活动</span></button>
+    </form>
+    {% endif %}</li>
+
+  <li>{% if request.session.love_user.name %}
+        <form action="{% url 'findpage'  %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find1"  value="{{ request.session.love_user.name }}" readonly="readonly"  />
+        <button><span>个人中心</span></button>
+    </form>
+    {% endif %}</li>
+
+<a href="{% url 'index'%}"><button>返回首页</button></a>
+
+</ul>
+<center>
+    <div class="text">
+
+    </div>
+        <div class="border">
+            <div class="pic">
+                <img src="/static/images/Q1.png" width="400px" height="600px">
+            </div>
+        <form action="{% url 'apply' %}" method="post">
+            {% csrf_token %}
+            <br/>
+            <br/>
+
+        <table>
+            <tr>
+                <td style="font-size: 30px">活动标题:</td>
+                <td><input  class="shuru" type="text" name="title" required="required"></td>
+            </tr>
+            <tr>
+                <td style="font-size: 30px">活动内容:</td>
+                <td><input class="shuru" type="text" name="context" required="required"></td>
+            </tr>
+            <tr>
+                <td style="font-size: 30px">活动时间:</td>
+                <td><input class="shuru" type="text" name="time" required="required"></td>
+            </tr>
+            <tr>
+                <td style="font-size: 30px">活动地点:</td>
+                <td><input class="shuru" type="text" name="place" required="required"></td>
+            </tr>
+            <tr>
+                <td style="font-size: 30px">举办单位:</td>
+                <td><input class="shuru" type="text" name="Organizer" required="required"></td>
+            </tr>
+            <tr>
+                <td style="font-size: 30px">单位资质:</td>
+                <td><input class="shuru" type="text" name="qualifications" required="required"></td>
+            </tr>
+        </table>
+            <br/>
+        <input class="button" type="submit" value="申请"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="button" type="reset" value="重置"/>
+            <br/>
+            <br/>
+            <br/>
+        </form>
+            <div class="pic">
+                <img src="/static/images/Q2.png" width="400px" height="600px">
+            </div>
+        </div>
+</center>
+{% endblock %}

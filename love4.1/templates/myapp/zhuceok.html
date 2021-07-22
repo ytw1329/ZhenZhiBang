@@ -1,0 +1,17 @@
+{% extends 'myapp/index.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+ <script>
+    var msg = confirm("注册成功!!!，返回登录界面");
+    if (msg) {
+        window.location.href = "{% url 'login' %}";
+    }else{
+        window.location.href = "{% url 'index' %}";
+    }
+
+</script>
+{% endblock %}

@@ -1,0 +1,310 @@
+{% extends 'myapp/base.html' %}
+
+
+{% block title %}
+<style >
+    .border{
+        border: 4px solid pink;
+        border-radius: 15px;
+        margin: 60px;
+    }    .test{
+        margin-top: 30px;
+        margin-left: 50px;
+    }
+    .pic_bota{
+        flex-direction: row;
+        display: flex;
+    }
+.head{
+    flex-direction: row;
+    display: flex;
+}
+    .search{
+        border-radius: 12px;
+    }
+    .body{
+        margin-left: 60px;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="border">
+    <div class="head">
+        <img src="/static/image/zzb.jpg" width="50%" height="30%">
+        <img src="/static/image/宝贝回家.png" width="40%" height="30%">
+
+    </div>
+    <div class="container" style="z-index: 999" id="searchDiv">
+        <div class="keyword-search">
+            查找：
+            <input id="key" type="text" style="width: 200px;" placeholder="关键词" />
+            <a href="javascript:void(0);" class="prev" onclick='wordSearch(1)'><i class="c-icon"></i></a>
+            <a href="javascript:void(0);" class="next" onclick='wordSearch()'><i class="c-icon"></i></a>
+        </div>
+{#    </div>#}
+{#    <div class="body">#}
+{#        <div>#}
+{#        <form action="/list.aspx?tid=1" method="post">#}
+{#    性别：<select name="sex"><option value="">请选择</option><option value="1" >男</option><option value="0" >女</option></select>#}
+{#    省份：<select name="Pro"><option value="">请选择</option>#}
+{#            <option value="0" >北京市</option>#}
+{#            <option value="1" >黑龙江省</option>#}
+{#            <option value="2" >吉林省</option>#}
+{#            <option value="3" >辽宁省</option>#}
+{#            <option value="4" >内蒙古自治区</option>#}
+{#            <option value="5" >天津市</option>#}
+{#            <option value="6" >江西省</option>#}
+{#            <option value="7" >广东省</option>#}
+{#            <option value="8" >湖南省</option>#}
+{#            <option value="9" >广西省</option>#}
+{#            <option value="10" >贵州省</option>#}
+{#            <option value="11" >重庆市</option>#}
+{#            <option value="12" >陕西省</option>#}
+{#            <option value="13" >宁夏回族自治区</option>#}
+{#            <option value="14" >广西壮族自治区</option>#}
+{#            <option value="15" >甘肃省</option>#}
+{#            <option value="16" >青海省</option>#}
+{#            <option value="17" >四川省</option>#}
+{#            <option value="18" >云南省</option>#}
+{#            <option value="19" >西藏藏族自治区</option>#}
+{#            <option value="20" >新疆维吾尔自治区</option>#}
+{#            <option value="21" >河北省</option>#}
+{#            <option value="22" >山东省</option>#}
+{#            <option value="23" >江苏省</option>#}
+{#            <option value="24" >山西省</option>#}
+{#            <option value="25" >河南省</option>#}
+{#            <option value="26" >安徽省</option>#}
+{#            <option value="27" >台湾省</option>#}
+{#            <option value="28" >浙江省</option>#}
+{#            <option value="29">上海市</option>#}
+{#            <option value="30" >香港特别行政区</option>#}
+{#            <option value="31" >澳门特别行政区</option>#}
+{#            <option value="32" >湖北省</option>#}
+{#            <option value="33" >福建省</option></select>#}
+{#    <input type="submit" value="搜索" />#}
+{#    </form>#}
+{#        </div>#}
+{#    </div>#}
+<div style="width:950px;height:10px;margin:0 auto;"></div>
+<div style="width:950px;margin:0 auto;">
+    <div class="pic_bot" id="ti1" style="text-align:center;">
+       <div class="pic_bota">
+           <div class="test">
+            <input id="552782-hid" value="双胞胎妹妹,福建省,南平..,玲珑,2021-07-16" type="hidden" />
+                <dl>
+                    <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552782"><img class="cimg" width="120" height="150" src="/static/images/走失儿童照片/1.png" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552782" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                      <dd>
+                          <a href="/view.aspx?type=1&amp;id=552782"  target=_blank style=" font-size:12px; font-weight:bold;">双胞胎..</a>  <a href="/view.aspx?type=1&amp;id=552782">女</a>  <a href="/view.aspx?type=1&amp;id=552782" target=_blank style=" color:#999;  font-size:12px;">福建省..</a>
+                      </dd>
+                 </dl>
+          </div>
+           <div class="test">
+            <input id="552715-hid" value="黎华石,2017-08-14,2021-07-11,552715,广西壮族自..,浩哥,2021-07-15" type="hidden" />
+                <dl>
+                      <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552715"><img class="cimg" width="120" height="150" src="/static/images/走失儿童照片/2.png" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552715" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                          <dd>
+                              <a href="/view.aspx?type=1&amp;id=552715"  target=_blank style=" font-size:12px; font-weight:bold;">黎华石</a>  <a href="/view.aspx?type=1&amp;id=552715">男</a>  <a href="/view.aspx?type=1&amp;id=552715" target=_blank style=" color:#999;  font-size:12px;">广西壮..</a>
+                          </dd>
+                 </dl>
+           </div>
+           <div class="test">
+                <input id="552705-hid" value="郑小辉,1981-02-23,1983-08-07,552705,河南省,郑州..,天空海阔,2021-07-15" type="hidden" />
+                    <dl>
+                      <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552705"><img class="cimg" width="120" height="150" src="/static/images/走失儿童照片/3.png" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552705" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                      <dd>
+                          <a href="/view.aspx?type=1&amp;id=552705"  target=_blank style=" font-size:12px; font-weight:bold;">郑小辉</a>  <a href="/view.aspx?type=1&amp;id=552705">女</a>  <a href="/view.aspx?type=1&amp;id=552705" target=_blank style=" color:#999;  font-size:12px;">河南省..</a>
+                      </dd>
+                     </dl>
+           </div>
+               <div class="test">
+                   <input id="552667-hid" value="王荫琴,1956-05-24,1970-06-01,552667,河南省,洛阳..,竹雨,2021-07-15" type="hidden" />
+                    <dl>
+                      <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552667"><img class="cimg" width="120" height="150" src="/static/images/走失儿童照片/4.png" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552667" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                      <dd>
+                          <a href="/view.aspx?type=1&amp;id=552667"  target=_blank style=" font-size:12px; font-weight:bold;">王荫琴</a>  <a href="/view.aspx?type=1&amp;id=552667">女</a>  <a href="/view.aspx?type=1&amp;id=552667" target=_blank style=" color:#999;  font-size:12px;">河南省..</a>
+                      </dd>
+                     </dl>
+               </div>
+               <div class="test">
+                   <input id="552632-hid" value="罗金才,1996-02-24,1999-06-21,552632,贵州省,贵阳..,钰味记,2021-07-15" type="hidden" />
+                    <dl style="margin-right:0;">
+                      <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552632"><img class="cimg" width="120" height="150" src="/photo/none-120-150.jpg" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552632" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                      <dd>
+                          <a href="/view.aspx?type=1&amp;id=552632"  target=_blank style=" font-size:12px; font-weight:bold;">罗金才</a>  <a href="/view.aspx?type=1&amp;id=552632">男</a>  <a href="/view.aspx?type=1&amp;id=552632" target=_blank style=" color:#999;  font-size:12px;">贵州省..</a>
+                      </dd>
+                     </dl>
+               </div>
+       </div>
+        <div class="pic_bota">
+            <div class="test">
+                <input id="552584-hid" value="冉龙燕,2004-10-20,2006-01-01,552584,浙江省,杭州..,心洁,2021-07-15" type="hidden" />
+                    <dl>
+                      <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552584"><img class="cimg" width="120" height="150" src="/photo/none-120-150.jpg" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552584" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                      <dd>
+                          <a href="/view.aspx?type=1&amp;id=552584"  target=_blank style=" font-size:12px; font-weight:bold;">冉龙燕</a>  <a href="/view.aspx?type=1&amp;id=552584">女</a>  <a href="/view.aspx?type=1&amp;id=552584" target=_blank style=" color:#999;  font-size:12px;">浙江省..</a>
+                      </dd>
+                     </dl>
+           </div>
+            <div class="test">
+                <input id="552552-hid" value="陈欢（送养）,1992-02-07,1994-06-18,552552,四川省,遂宁..,辉哥,2021-07-15" type="hidden" />
+                    <dl>
+                      <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552552"><img class="cimg" width="120" height="150" src="/photo/none-120-150.jpg" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552552" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                      <dd>
+                          <a href="/view.aspx?type=1&amp;id=552552"  target=_blank style=" font-size:12px; font-weight:bold;">陈欢（..</a>  <a href="/view.aspx?type=1&amp;id=552552">女</a>  <a href="/view.aspx?type=1&amp;id=552552" target=_blank style=" color:#999;  font-size:12px;">四川省..</a>
+                      </dd>
+                     </dl>
+            </div>
+            <div class="test">
+                <input id="552550-hid" value="黎喜德,1966-06-06,1978-02-09,552550,广西壮族自..,萍萍,2021-07-15" type="hidden" />
+            <dl>
+              <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552550"><img class="cimg" width="120" height="150" src="/photo/none-120-150.jpg" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552550" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+              <dd>
+                  <a href="/view.aspx?type=1&amp;id=552550"  target=_blank style=" font-size:12px; font-weight:bold;">黎喜德</a>  <a href="/view.aspx?type=1&amp;id=552550">男</a>  <a href="/view.aspx?type=1&amp;id=552550" target=_blank style=" color:#999;  font-size:12px;">广西壮..</a>
+              </dd>
+             </dl>
+            </div>
+            <div class="test">
+                 <input id="552543-hid" value="无（送养）,1976-12-12,1976-12-12,552543,山西省,大同..,绿玫,2021-07-15" type="hidden" />
+                    <dl>
+                      <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552543"><img class="cimg" width="120" height="150" src="/photo/none-120-150.jpg" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552543" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                      <dd>
+                          <a href="/view.aspx?type=1&amp;id=552543"  target=_blank style=" font-size:12px; font-weight:bold;">无（送..</a>  <a href="/view.aspx?type=1&amp;id=552543">女</a>  <a href="/view.aspx?type=1&amp;id=552543" target=_blank style=" color:#999;  font-size:12px;">山西省..</a>
+                      </dd>
+                     </dl>
+            </div>
+            <div class="test">
+                 <input id="552522-hid" value="未知（送养）,1991-02-14,1991-02-19,552522,浙江省,金华..,钰味记,2021-07-14" type="hidden" />
+                    <dl style="margin-right:0;">
+                      <dt style=" height:190px;"><a href="/view.aspx?type=1&amp;id=552522"><img class="cimg" width="120" height="150" src="/photo/none-120-150.jpg" onmousemove="popImg(event)" onmouseout="closePopImg(event)" id="552522" style="border:1px solid #d9d9d9; padding:2px 2px 2px 2px; " /></a></dt>
+                      <dd>
+                          <a href="/view.aspx?type=1&amp;id=552522"  target=_blank style=" font-size:12px; font-weight:bold;">未知（..</a>  <a href="/view.aspx?type=1&amp;id=552522">女</a>  <a href="/view.aspx?type=1&amp;id=552522" target=_blank style=" color:#999;  font-size:12px;">浙江省..</a>
+                      </dd>
+                     </dl>
+            </div>
+            <div class="pic_bota">
+            </div>
+        </div>
+    </div>
+</div>
+    </table>
+</div>
+</div>
+
+ <script>//搜索功能
+        var oldKey0 = "";
+        var index0 = -1;var oldCount0 = 0;
+        var newflag = 0;
+        var currentLength = 0;
+
+        function wordSearch(flg) {
+            var key = $("#key").val(); //取key值
+            if (!key) {
+                return; //key为空则退出
+            }
+            getArray();
+            focusNext(flg);
+
+        }
+
+        function focusNext(flg) {
+            if (newflag == 0) {//如果新搜索,index清零
+                index0 = 0;
+            }
+            if (!flg) {
+                if (oldCount0 != 0) {//如果还有搜索
+                    if (index0 < oldCount0) {//左边如果没走完，走左边
+                        focusMove(index0);
+                        index0++;
+                    } else if (index0 == oldCount0) {//都走完了
+                        index0 = 0;
+                        focusMove(index0);
+                        index0++;
+                    }
+                    else {
+                        index0 = 0;//没确定
+                        focusMove(index0);
+                        index0++;
+                    }
+                }
+
+            } else {
+                if (oldCount0 != 0) {//如果还有搜索
+                    if (index0 <= oldCount0 && index0 > 0) {//左边如果没走完，走左边
+                        index0--;
+                        focusMove(index0);
+                    } else if (index0 == 0) {//都走完了
+                        index0 = oldCount0;
+                        index0--
+                        focusMove(index0);
+                    }
+                }
+            }
+        }
+        function getArray() {
+            newflag = 1;
+            $(".contrast .result").removeClass("res");
+            var key = $("#key").val(); //取key值
+            if (!key) {
+                oldKey0 = "";
+                return; //key为空则退出
+            }
+            if (oldKey0 != key || $(".current").length != currentLength) {
+                //重置
+                index0 = 0;
+                var index = 0;
+                $(".contrast .result").each(function () {
+                    $(this).replaceWith($(this).html());
+                });
+                pos0 = new Array();
+                if ($(".contrast-wrap").hasClass("current")) {
+                    currentLength = $(".current").length;
+                    $(".current .contrast").each(function () {
+                        $(this).html($(this).html().replace(new RegExp(key, "gm"), "<span id='result" + (index++) + "' class='result'>" + key + "</span>")); // 替换
+                    });
+                } else {
+                    $(".contrast-wrap").addClass('current');
+                    currentLength = $(".current").length;
+                    $(".contrast").each(function () {
+                        $(this).html($(this).html().replace(new RegExp(key, "gm"), "<span id='result" + (index++) + "' class='result'>" + key + "</span>")); // 替换
+                    });
+                }
+                //$("#key").val(key);
+                oldKey0 = key;
+
+                //$(".contrast .result").each(function () {
+                //    $(this).parents('.contrast-wrap').addClass('current');
+                //    pos0.push($(this).offset().top);
+                //});
+                // pos0.push($(".contrast .result:eq(2)").offset().top - $(".contrast .result:eq(2)").parents(".contrast").offset().top);
+                oldCount0 = $(".contrast .result").length;
+                newflag = 0;
+            }
+        }
+        function focusMove(index0) {
+            $(".contrast .result:eq(" + index0 + ")").parents('.contrast-wrap').addClass('current');
+            $(".contrast .result:eq(" + index0 + ")").addClass("res");
+            var top = $(".contrast .result:eq(" + index0 + ")").offset().top + $(".contrast .result:eq(" + index0 + ")").parents(".contrast").scrollTop();
+            var intop = top - $(".contrast .result:eq(" + index0 + ")").parents(".contrast").offset().top;
+            $(".contrast .result:eq(" + index0 + ")").parents(".contrast").animate({ scrollTop: intop }, 200);
+            if ($(".contrast .result:eq(" + index0 + ")").parents(".contrast").scrollTop() == 0) {
+                $("html, body").animate({ scrollTop: top - 200 }, 200);
+            } else {
+                $("html, body").animate({ scrollTop: $(".contrast .result:eq(" + index0 + ")").parents(".contrast").offset().top - 200 }, 200);
+            }
+
+        }
+
+
+        $('#key').change(function () {
+            if ($('#key').val() == "") {
+                index0 = 0;
+                $(".contrast .result").each(function () {
+                    $(this).replaceWith($(this).html());
+                });
+                oldKey0 = "";
+            }
+        });
+    </script>
+{% endblock %}

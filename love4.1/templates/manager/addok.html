@@ -1,0 +1,17 @@
+{#{% extends 'myapp/index.html' %}#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+ <script>
+    var msg = confirm("发布活动成功");
+    if (msg) {
+        window.location.href = "{% url 'Manageadddata' %}";
+    }else{
+        window.location.href = "{% url 'Manageadddata' %}";
+    }
+
+</script>
+{% endblock %}

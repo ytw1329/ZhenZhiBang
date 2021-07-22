@@ -1,0 +1,18 @@
+{% extends 'manager/base.html' %}
+{% block title %}
+<title>首页</title>
+{% endblock %}
+
+{% block content %}
+    <ul>
+        <li><a href="{% url 'Manageshowdata' %}">志愿者信息</a></li>    </ul>
+
+
+{#{% if request.session.guanliyuan_user.name %}#}
+{#{{ request.session.guanliyuan_user.name }}#}
+{#<a href="{% url 'Managedologout' %}">退出</a>#}
+{#{% endif %}#}
+
+{% endblock %}
+
+

@@ -1,0 +1,264 @@
+{#{% extends 'myapp/base.html' %}#}
+{% block title %}
+<head>
+    <meta charset="UTF-8">
+    <title>中国儿童罕见病救助基金</title>
+</head>
+<style>
+
+    /* 整个外层容器的宽高 */
+    .nav {
+        width: 50%;height: 100px;margin:1% 5% 10% 45%;position: absolute;
+    }
+    /* 整个导航栏的宽高 */
+    .nav .menu {
+        width: 100%;
+        /* 导航栏居中 */
+        margin: 0 auto;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .nav li {
+        /* 对其菜单项左浮动，呈横向排列 */
+        float: left;
+        list-style-type:none;
+    }
+    /* 设置菜单项里的文字内容 */
+    .nav ul li a:link,
+    .nav ul li a:visited{
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        text-align: center;
+        background: pink;
+    }
+    /* 设置菜单项里文字点击的效果颜色 */
+    .nav ul li a:hover,
+    .nav ul li a:active {
+        background: lightpink;
+    }
+    /* 隐藏二级菜单 */
+    .nav ul li ul {
+        display: none;
+        position: absolute;
+        z-index: 10;
+    }
+    /* 让二级菜单在点击一级菜单项时才会出现 */
+    .nav ul li:hover ul {
+        display: block;
+    }
+    /* 清除二级菜单的浮动 */
+    .nav ul li ul li {
+        float: none;
+        background: lightpink;
+    }
+
+    .pic{
+        {#margin-left: 12%;#}
+        text-align: right;
+    }
+    .fuchuang{
+        background-image: url("/static/images/7.png");
+        background-color: white;
+        text-align: center;
+    }
+    .body1{
+        text-align: center;
+    }
+    .all{
+        background-color: rgba(255,255,255,0);
+        border: 4px solid pink;
+        border-radius: 15px;
+        margin: 60px;
+    }
+    .body{
+        text-align: left;
+        flex-direction: row;
+        display: flex;
+    }
+    .banner-introduction{
+        margin-right: 150px;
+        margin-left: 150px;
+    }
+    .body1{
+        text-align: center;
+    }
+    .tel{
+        font-size: medium;
+        text-align: center;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+       <div class="pic" style="width: 30%;height: 100px;margin: 0 60% 0 10%;position: absolute;">
+        <img src="/static/image/zzb.jpg" width="100%" height="150px">
+    </div>
+ <div class="nav">
+        <br><br>
+            <!-- 整个导航栏 -->
+            <ul class="menu">
+                <!-- 一级菜单 -->
+                <li>
+                    <a href="{% url 'index' %}">首页</a>
+                    <!-- 二级菜单 -->
+{#                    <ul>#}
+{#                        <li><a href="">我们的伙伴</a></li>#}
+{#                        {% if request.session.love_user.name %}#}
+{##}
+{#                            <li><a href="">志愿活动发布</a></li>#}
+{#                            <li><a href="">志愿活动申请</a></li>#}
+{##}
+{##}
+{#                        {% endif %}#}
+{#                        <li><a href="{% url 'childshow' %}">走失儿童信息预览</a></li>#}
+{#                    </ul>#}
+
+                </li>
+                <li>
+                    <a href="">我们的项目</a>
+                    <ul>
+                        <li><a href="" >公益基金会</a></li>
+                        <li><a href="{% url 'childshow' %}">宝贝回家</a></li>
+                        <li><a href="">关注罕见病</a></li>
+                    </ul>
+                </li>
+                <li> <a href="{% url 'adddata'  %}" >活动浏览/报名</a></li>
+
+                <li>
+{#                    {% if request.session.love_user.name %}#}
+{#                        <a href="{% url 'adddata'  %}"><span>活动浏览/报名</span></a>#}
+{#                    {% endif %}#}
+{#                        <a href="{% url 'dologout' %}"><span>退出登录</span></a>&nbsp;#}
+                </li>
+
+{#                <li><a href="{% url 'managelogin' %}">管理员登录</a></li>#}
+                <li>
+                    {% if request.session.love_user.name %}
+
+                        <a href="">用户名：{{ request.session.love_user.name }}</a>
+{#                    {{ request.session.love_user.name }}#}
+                        <ul>
+                            <form action="{% url 'findpage' %}" method="post" >
+                                {% csrf_token %}
+                                 <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find1"  value="{{ request.session.love_user.name }}" readonly="readonly" />
+{#                                 <button><span>个人中心</span></button>#}
+                                <a href=""><button  type="submit" style="width: 150px; /* 宽度 */
+                                                    height: 50px; /* 高度 */
+                                                    border-width: 0px; /* 边框宽度 */
+                                                    border-radius: 3px; /* 边框半径 */
+                                                    background: lightpink; /* 背景颜色 */
+                                                    outline: none; /* 不显示轮廓线 */
+                                                    font-family: Microsoft YaHei; /* 设置字体 */
+                                                    color: white; /* 字体颜色 */
+                                                    font-size: 17px; /* 字体大小 */"
+ >个人中心</button></a>
+                                </form>
+
+                        </ul>
+
+
+
+                        <li><a href="{% url 'dologout' %}">退出登录</a></li>
+                        {% else %}
+
+                            <a href="{% url 'login' %}"><span>用户登录 </span></a>
+
+
+
+                            <li><a href="{% url 'adminlogin' %}"><span>管理员登录 </span></a></li>
+                        &nbsp;
+
+{#                            <li><a href="{% url 'showdata'  %}"><span>活动浏     览</span></a></li>#}
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+
+
+    <br><br><br><br><br><br><br>
+    <hr>
+
+<div class="all">
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <h1>格列卫全球患者援助项目</h1>
+          <div class="details-label label">
+              <img src="/static/images/标签.png" width="20px">
+	        标签:慢性粒细胞白血病
+          </div>
+	      <p><p>为了让更多符合条件的患者能获得格列卫，并提高治疗疗效，中华慈善总会决定将援助对象扩大，让那些在临床已经被证明应该继续接受格列卫治疗，但不能再继续支付治疗，而且不享受任何医疗保险的患者能够继续享受格列卫治疗。户口在北京市、上海市、天津市、广东省、江苏省、浙江省、福建省的慢性髓性白血病(CML)患者和胃肠道间质肿瘤(GIST)的患者可以申请。
+在中国，格列卫全球患者援助项目的终极目标是让所有符合条件的，无经济能力支付，但能受益于格列卫的患者获得格列卫治疗。
+格列卫全球患者援助项目的下一个目标是通过与国家社会保障部门及其社会各界的积极合作，建立更多的类似格列卫全球患者援助项目的患者援助渠道，让更多的人团体和政府机构关心CML和GIST患者，并积极参与慈善计划。只有这样，才能最终让所有符合条件的，应该受益于格列卫，但无经济能力来支付的患者免费获得格列卫治疗。<p><br/></p>
+
+    </div>
+    <img src="/static/images/爱心.png" width="300px" height="300px">
+</div>
+
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <div class="details-title">
+             <h2>援助模式</h2>
+         </div>
+        <div class="details-item-contend">
+            <p style="text-indent: 0em;"><strong>患者援助申请平台：</strong><br/>
+                <a href="https://glwsq.ccfpap.org/index/">申请平台</a>
+            <p style="text-indent: 0em;"><strong>申请流程:</strong><br/>
+            <img src="/static/images/申请流程.png"><br>
+            申请资料下载：<br>
+首次申请表：<br>
+· 慢性粒细胞白血病患者请点击此链接： <a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABCML%E9%A6%96%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf">格列卫CML首次申请表.pdf</a> <br>
+            · 胃肠道间质瘤患者请点击此链接： <a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABGIST%E9%A6%96%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf" >格列卫GIST首次申请表.pdf</a><br>
+· 隆突性皮肤纤维肉瘤患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABDFSP%E9%A6%96%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf"> 格列卫DFSP首次申请表.pdf</a><br>
+· 急性淋巴细胞白血病患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABPhALL%E9%A6%96%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf">格列卫PhALL首次申请表.pdf</a><br>
+· 其他医学条件患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%AB%E5%85%B6%E4%BB%96%E5%8C%BB%E5%AD%A6%E6%9D%A1%E4%BB%B6%E9%A6%96%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf">格列卫其他医学条件首次申请表.pdf</a><br>
+再次申请表：<br>
+· 慢性粒细胞白血病患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABCML%E5%86%8D%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf">格列卫CML再次申请表.pdf</a><br>
+· 胃肠道间质瘤患者请点击此链接： <a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABGIST%E5%86%8D%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf">格列卫GIST再次申请表.pdf</a><br>
+· 隆突性皮肤纤维肉瘤患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABDFSP%E5%86%8D%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf">格列卫DFSP再次申请表.pdf</a><br>
+· 急性淋巴细胞白血病患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABPhALL%E5%86%8D%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf">格列卫PhALL再次申请表.pdf</a><br>
+· 其他医学条件患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%AB%E5%85%B6%E4%BB%96%E5%8C%BB%E5%AD%A6%E6%9D%A1%E4%BB%B6%E5%86%8D%E6%AC%A1%E7%94%B3%E8%AF%B7%E8%A1%A8.pdf">格列卫其他医学条件再次申请表.pdf</a><br>
+申请人医学条件确认表：<br>
+· 慢性粒细胞白血病患者请点击此链接： <a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABCML%E5%8C%BB%E5%AD%A6%E6%9D%A1%E4%BB%B6%E7%A1%AE%E8%AE%A4%E8%A1%A8.pdf">申请人医学条件确认表-CML.pdf</a><br>
+· 胃肠道间质瘤患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABGIST%E5%8C%BB%E5%AD%A6%E6%9D%A1%E4%BB%B6%E7%A1%AE%E8%AE%A4%E8%A1%A8.pdf">申请人医学条件确认表-胃肠间质瘤（GIST）.pdf</a><br>
+· 隆突性皮肤纤维肉瘤患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABDFSP%E5%8C%BB%E5%AD%A6%E6%9D%A1%E4%BB%B6%E7%A1%AE%E8%AE%A4%E8%A1%A8.pdf">请人医学条件确认表-隆凸性皮肤纤维肉瘤（DFSP）.pdf</a><br>
+· 急性淋巴细胞白血病患者请点击此链接：<a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%ABPhALL%E5%8C%BB%E5%AD%A6%E6%9D%A1%E4%BB%B6%E7%A1%AE%E8%AE%A4%E8%A1%A8.pdf">申请人医学条件确认表-急性淋巴细胞白血病（Ph+ALL).pdf</a><br>
+· 其他医学条件患者请点击此链接： <a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%AB%E5%85%B6%E4%BB%96%E5%8C%BB%E5%AD%A6%E6%9D%A1%E4%BB%B6%E7%A1%AE%E8%AE%A4%E8%A1%A8.pdf"> 格列卫其他医学条件确认表.pdf</a><br>
+
+随访表：<br>
+            · 格列卫患者援助项目随访表请点击此链接： <a href="https://www.gipap.org.cn/%E5%8D%95%E9%A1%B5%E7%89%88/%E6%A0%BC%E5%88%97%E5%8D%AB%E6%82%A3%E8%80%85%E6%8F%B4%E5%8A%A9%E9%A1%B9%E7%9B%AE%E9%9A%8F%E8%AE%BF%E8%A1%A8.pdf">格列卫患者援助项目随访表.pdf</a><br><br><br><br><br><br>
+
+        </div>
+    </div>
+</div>
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+    </div><br><br><br><br>
+    <div class="body1">
+        <div>
+        <text>求助电话:400-606-102</text><br>
+        <text>周一至周五</text><br>
+        <text>早上9：00-晚上17：00</text>
+        <text>传真:010-67117200</text><br>
+        <text>邮箱：北京市6201邮箱</text><br>
+        <text>邮编:100062</text>
+            </div>
+            <div>
+                 <img src="/static/images/二维码/手握明天.png">
+           </div>
+    </div>
+    <style>
+        #nav { width:150px; height: 200px; border: 1px solid #D4CD49; position:fixed;left:0;top:30% }
+    </style>
+        <div id="nav" class="fuchuang">
+            <a href="{% url 'money' %}">我要捐赠</a>
+        </div>
+</div>
+    <div class="pic">
+        <img src="./static/images/7.png">
+    </div>
+</div>
+{% endblock %}

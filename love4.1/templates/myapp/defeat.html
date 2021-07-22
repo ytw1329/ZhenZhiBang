@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+ <script>
+    var msg = confirm("用户名或密码错误，请重新登录");
+    if (msg) {
+        window.location.href = "{% url 'login' %}";
+    }else {
+        window.location.href = "{% url 'index' %}";
+    }
+
+</script>
+{% endblock %}

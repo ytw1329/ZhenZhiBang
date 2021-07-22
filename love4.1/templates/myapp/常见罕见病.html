@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>常见罕见病</title>
+    <style type="text/css">
+    /* logo */
+   body{
+        background-image: url(/static/image/背景1.jpg);
+        background-repeat: no-repeat;
+        background-size: 603px 250px;
+        background-position: 15px 30px;
+		float: left;
+        }
+    /* 按钮 */
+.button {
+        background-color: pink;
+        border: none;
+        border-radius: 30px;
+        color: black;
+        padding: 25px 22px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        /* margin: 4px 2px; */
+        position: absolute;
+        /* margin-left:50%;
+        margin-top: 10%; */
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    }
+.button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    /* 左右框架 */
+    .maindiv{
+            width:1200px;
+            padding:10px;
+            overflow:hidden; /*关键*/
+            border:5px dashed white;
+            border-radius:25px;
+            margin-left: 200px;
+            }
+
+
+            .leftdiv{
+            float:left;
+            width:600px;
+            /* background-color:#CC6633; */
+            font-size: 23px;
+            font-weight: bold;
+            color: darkblue;
+            }
+
+            .rightdiv{
+            float:right;
+            width:600px;
+            /* background-color:#CC66FF; */
+            
+            }
+
+            .centerdiv{
+            float:left;
+            position: center;
+            /* width:50px; */
+            border-right: 5px dashed white;
+            padding-bottom:1600px;  /*关键*/
+            margin-bottom:-1600px;  /*关键*/
+            }
+            p.double {border-style:double;
+                border-radius:25px;
+                /* height: 180px;
+                width: 500px; */
+                border-color: pink;
+                font-size: 20px;
+                font-weight: bold;
+                color: black;
+            }
+    </style>
+</head>
+<style>
+            #nav { width:310px; height: 400px; border: 1px solid #D4CD49; position:fixed;left:84%;top:40% }
+            .fuchuang{background-color: white;font-size: 20px}
+            .pic{text-align: center; font-size:10px;line-height:10px;color: black;font-size: 20px}
+        .smallimg{height: 230px;width: 300px;}
+      .text{
+          font-size: 30px;
+      }
+        </style>
+        <div id="nav" class="fuchuang">
+            <div class="pic">
+                <p>公益小贴士</p>
+                <div class="text"><p>勿占盲道</p></div>
+                <p>为了盲人朋友的安全</p>
+                <p>请勿占用盲道</p>
+            </div>
+        <img class="smallimg" src="/static/images/浮窗/盲道.png">
+    </div>
+<div>
+     <button class="button button2" style=" margin-left:660px;margin-top: 145px; " onclick="window.location.href='{% url '罕见病' %}'">
+        关于罕见病</button>
+    <button class="button button2" style=" margin-left:880px;margin-top: 145px;" onclick="window.location.href='{% url '常见罕见病' %}'">
+        常见罕见病</button>
+    <button class="button button2" style=" margin-left:1100px;margin-top: 145px;" onclick="window.location.href='{% url '相关政策' %}'">
+        相关政策</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;
+    <button class="button button2" style=" margin-left:1100px;margin-top: 145px;" onclick="window.location.href='{% url 'index' %}'">
+        返回首页</button>
+
+</div>
+<div class="maindiv" style="margin-top: 265px;">
+    <div class="leftdiv">常见罕见病---白化病
+            <p class="double">
+                &nbsp;&nbsp;&nbsp;&nbsp;由于不同基因的突变，导致黑色素或黑色素体生物合成缺陷。白化病患者的皮肤和毛发呈白化现象，
+                易晒伤、大多有眼球震颤、怕光、低视力等现象，目前无有效的治疗方式
+                <br>&nbsp;
+            </p>
+            常见罕见病---肢端肥大症
+            <p class="double">
+                &nbsp;&nbsp;&nbsp;&nbsp;是脑下垂体因增生或肿瘤而引起生长激素分泌过多
+                引起的皮肤及骨骼异常增生性疾病。未成年人发病
+                引起巨人症，成年人发病表现为皮肤弥漫性肥大增
+                厚，面部皮肤纹理增粗，皱纹加深，鼻唇沟增宽，
+                舌、嘴唇变厚。同时垂体肿瘤压迫导致器官病变且
+                恶性肿瘤发生率也会相应增加，寿命缩短。
+                <br>&nbsp;
+            </p>
+            常见罕见病---运动神经元病
+            <p class="double">
+                &nbsp;&nbsp;&nbsp;&nbsp;目前发病原因尚不明确，患者表现为肌无力、肌萎
+                缩、延髓麻痹等，通常无感觉异常。该病多为中老
+                年发病，病程多为2~6年，大多预后不良，常因呼
+                吸肌受累死于呼吸肌麻痹或肺部感染。
+                <br>&nbsp;
+            </p>
+            常见罕见病---成骨不全症
+            <p class="double">
+                &nbsp;&nbsp;&nbsp;&nbsp;成骨不全症的发病原因尚不明确，常表现为骨质脆
+                弱、蓝巩膜、耳聋、关节松弛等。
+                <br>&nbsp;
+            </p>
+
+    </div>
+    <div class="centerdiv"></div>
+        <div class="rightdiv">
+                <img src="/static/image/医生 (1).png">
+                <br><br><br><br>
+                <img src="/static/image/手术工具.png">
+        </div>
+</div>
+</boby>
+</html>

@@ -1,0 +1,53 @@
+{#{% extends 'myapp/base.html' %}#}
+
+{% block title %}
+<title>查询机场信息</title>
+{% endblock %}
+
+{% block content %}
+<center>
+<table border="1">
+    <thead>
+    <tr>
+        <td></td>
+        <td>序号</td>
+        <td>姓名</td>
+        <td>活动标题</td>
+        <td>活动内容</td>
+        <td>活动时间</td>
+        <td>活动地点</td>
+        <td>活动单位</td>
+        <td>单位资质</td>
+        <td>性别</td>
+        <td>电话</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for port in airports %}
+        <tr>
+            <td>{{ port.id }}</td>
+            <td>{{ port.name }}</td>
+            <td>{{ port.title }}</td>
+            <td>{{ port.context }}</td>
+            <td>{{ port.time }}</td>
+            <td>{{ port.place }}</td>
+            <td>{{ port.Organizer }}</td>
+            <td>{{ port.qualifications }}</td>
+            <td>{{ port.sex }}</td>
+            <td>{{ port.tel }}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{#    <a href="{% url 'findpage3' pIndex|add:-1 %}">上一页 </a>#}
+{#    {% for p in page_list %}#}
+{#    {% if p == pIndex %}#}
+{#        <a href="{% url 'findpage3' p %}" style="color: red">{{ p }}</a>&nbsp;&nbsp;#}
+{#    {% else %}#}
+{#        <a href="{% url 'findpage3' p %}">{{ p }}</a>&nbsp;&nbsp;#}
+{#    {% endif %}#}
+{#{% endfor %}#}
+{#    <a href="{% url 'findpage3' pIndex|add:1 %}">下一页 </a>#}
+</center>
+{% endblock %}

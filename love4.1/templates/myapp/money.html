@@ -1,0 +1,291 @@
+{#{% extends 'myapp/base.html' %}#}
+
+{% block title %}
+    <title>捐款</title>
+    <style>
+    .table {
+        width: 60%;
+        height: 300px;
+        margin: 0 20% 0 20%;
+        position: absolute;
+    }
+/* 整个外层容器的宽高 */
+    .nav {
+        width: 50%;height: 100px;margin:0 5% 0 45%;position: absolute;
+    }
+    /* 整个导航栏的宽高 */
+    .nav .menu {
+        width: 100%;
+        /* 导航栏居中 */
+        margin: 0 auto;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .nav li {
+        /* 对其菜单项左浮动，呈横向排列 */
+        float: left;
+        list-style-type:none;
+    }
+    /* 设置菜单项里的文字内容 */
+    .nav ul li a:link,
+    .nav ul li a:visited{
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        text-align: center;
+        background: pink;
+    }
+    /* 设置菜单项里文字点击的效果颜色 */
+    .nav ul li a:hover,
+    .nav ul li a:active {
+        background: lightpink;
+    }
+    /* 隐藏二级菜单 */
+    .nav ul li ul {
+        display: none;
+        position: absolute;
+        z-index: 10;
+    }
+    /* 让二级菜单在点击一级菜单项时才会出现 */
+    .nav ul li:hover ul {
+        display: block;
+    }
+    /* 清除二级菜单的浮动 */
+    .nav ul li ul li {
+        float: none;
+        background: lightpink;
+    }
+
+    .pic{
+        {#margin-left: 12%;#}
+        text-align: right;
+    }
+    .fuchuang{
+        background-image: url("/static/images/7.png");
+        background-color: white;
+        text-align: center;
+    }
+    .body1{
+        text-align: center;
+    }
+    .all{
+        background-color: rgba(255,255,255,0);
+        border: 4px solid pink;
+        border-radius: 15px;
+        margin: 60px;
+    }
+    .body{
+        text-align: left;
+        flex-direction: row;
+        display: flex;
+    }
+    .banner-introduction{
+        margin-right: 150px;
+        margin-left: 150px;
+    }
+    .body1{
+        text-align: center;
+    }
+    .tel{
+        font-size: medium;
+        text-align: center;
+    }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="pic" style="width: 30%;height: 100px;margin: 0 60% 0 10%;position: absolute;">
+        <img src="/static/image/zzb.jpg" width="100%" height="100px">
+    </div>
+ <div class="nav">
+        <br><br>
+            <!-- 整个导航栏 -->
+            <ul class="menu">
+                <!-- 一级菜单 -->
+                <li>
+                    <a href="{% url 'index' %}">首页</a>
+                    <!-- 二级菜单 -->
+{#                    <ul>#}
+{#                        <li><a href="">我们的伙伴</a></li>#}
+{#                        {% if request.session.love_user.name %}#}
+{##}
+{#                            <li><a href="">志愿活动发布</a></li>#}
+{#                            <li><a href="">志愿活动申请</a></li>#}
+{##}
+{##}
+{#                        {% endif %}#}
+{#                        <li><a href="{% url 'childshow' %}">走失儿童信息预览</a></li>#}
+{#                    </ul>#}
+
+                </li>
+                <li>
+                    <a href="">我们的项目</a>
+                    <ul>
+                        <li><a href="" >公益基金会</a></li>
+                        <li><a href="{% url 'childshow' %}">宝贝回家</a></li>
+                        <li><a href="">关注罕见病</a></li>
+                    </ul>
+                </li>
+                <li> <a href="{% url 'adddata'  %}" >活动浏览/报名</a></li>
+
+                <li>
+{#                    {% if request.session.love_user.name %}#}
+{#                        <a href="{% url 'adddata'  %}"><span>活动浏览/报名</span></a>#}
+{#                    {% endif %}#}
+{#                        <a href="{% url 'dologout' %}"><span>退出登录</span></a>&nbsp;#}
+                </li>
+
+{#                <li><a href="{% url 'managelogin' %}">管理员登录</a></li>#}
+                <li>
+                    {% if request.session.love_user.name %}
+
+                        <a href="">用户名：{{ request.session.love_user.name }}</a>
+{#                    {{ request.session.love_user.name }}#}
+                        <ul>
+                            <form action="{% url 'findpage' %}" method="post" >
+                                {% csrf_token %}
+                                 <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find1"  value="{{ request.session.love_user.name }}" readonly="readonly" />
+{#                                 <button><span>个人中心</span></button>#}
+                                <a href=""><button  type="submit" style="width: 150px; /* 宽度 */
+                                                    height: 50px; /* 高度 */
+                                                    border-width: 0px; /* 边框宽度 */
+                                                    border-radius: 3px; /* 边框半径 */
+                                                    background: lightpink; /* 背景颜色 */
+                                                    outline: none; /* 不显示轮廓线 */
+                                                    font-family: Microsoft YaHei; /* 设置字体 */
+                                                    color: white; /* 字体颜色 */
+                                                    font-size: 17px; /* 字体大小 */"
+ >个人中心</button></a>
+                                </form>
+
+                        </ul>
+
+
+
+                        <li><a href="{% url 'dologout' %}">退出登录</a></li>
+                        {% else %}
+
+                            <a href="{% url 'login' %}"><span>用户登录 </span></a>
+
+
+
+                            <li><a href="{% url 'adminlogin' %}"><span>管理员登录 </span></a></li>
+                        &nbsp;
+
+{#                            <li><a href="{% url 'showdata'  %}"><span>活动浏     览</span></a></li>#}
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+
+
+    <br><br><br><br><br>
+    <hr>
+    <div class="table">
+        <hr>
+        <h3>捐款须知</h3>
+        <p>根据中国红十字基金会的管理规则，捐赠者可以任意选定所参加的公益项目。
+            中国红十字基金会根据捐赠者的意愿，负责公益项目的实施和管理，并按该公益项目的 实施管理规则，将相关信息反馈给捐赠者。
+            中国红十字基金会收到捐款后，将开具捐款收据，并按所填写地址将捐款收据寄回至捐赠者。
+            中国红十字基金会负责有关网上捐赠活动的解释。
+            如有疑问，欢迎致电了解捐款详情：xxx-xxxx-xxxx，也可以发送电子邮件到xxx@QQ.COM。</p>
+        <hr>
+        <h3>在线捐款</h3>
+        <center>
+        <form action="{% url 'insert2' %}" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>捐款项目：</td>
+                    <td><input type="text" name="dproject"></td>
+
+{#                    <td><select>#}
+{#                        <option value="none" selected disabled hidden>请选择捐款项目</option>#}
+{#                        <option value ="">残疾关爱</option>#}
+{#                        <option value ="">抗洪救灾</option>#}
+{#                        <option value ="">疫情防控</option>#}
+{#                        <option value ="">留守儿童</option>#}
+{#                        <option value ="">孤寡老人</option>#}
+{#                    </select></td>#}
+                </tr>
+                <tr>
+                    <td>金额：</td>
+                    <td><input type="text" name="damount" placeholder="请输入捐款金额"></td>
+                </tr>
+                <tr>
+                    <td>捐款人姓名：</td>
+                    <td><input type="text" name="dname" placeholder="请输入捐款人姓名"></td>
+                </tr>
+                <tr>
+                    <td>联系电话：</td>
+                    <td><input type="tel" name="dtel" placeholder="请输入联系电话"></td>
+                </tr>
+                <tr>
+                    <td>留言：</td>
+                    <td>
+                        <input type="text" name="dtext" placeholder="留下您宝贵的意见或建议">
+{#                        <textarea rows="5" cols="30" placeholder="请留下你想说的话"></textarea>#}
+                    </td>
+                </tr>
+                <tr>
+                    <td>支付方式：</td>
+                    <td><input type="text" name="dway">
+{#                        <select>#}
+{#                        <option value="none" selected disabled hidden>请选择捐款支付方式</option>#}
+{#                        <option value ="">支付宝</option>#}
+{#                        <option value ="">微信</option>#}
+{#                        </select>#}
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="reset" value="取消填写">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" value="确认捐款">
+        </form>
+        </center>
+    <br>
+        <hr>
+    <h3>邮局捐款</h3>
+        <p>邮局汇款至（请注明捐助项目）：
+            中国红十字基金会
+            地址：北京市东城区东单北大街 干面胡同53号
+            邮编：100010
+        </p>
+    <br>
+        <hr>
+    <h3>银行捐款</h3>
+        <p>1.  开户银行：中国银行北京市分行     账号：349356004919
+            2.  开户银行：中国工商银行北京东四南支行     账号：0200001019014483874
+            3.  开户银行：中国建设银行北京朝内大街支行     账号：11001070300059000427
+        </p>
+    <br>
+{#        <hr>#}
+{#    <h3>短信捐款</h3>#}
+{#    <p>如捐款指定具体项目，可发送数字发送到：</p>#}
+{#    <p>#}
+{#        1. 红十字天使计划项目#}
+{#        援建博爱卫生院（站） 106999901                               |      乡村医生培训   106999902#}
+{#        小天使基金（救助贫困白血病儿童） 106999903            |      天使阳光基金（救助贫困先天性心脏病儿童）  106999904#}
+{#        博爱家园基金   1069999015                                          |     一般性捐款   106999907#}
+{#        幸福天使基金（资助婴幼儿）    106999908                   |     爱必递基金  106999909#}
+{#        玉米爱心基金   1069999010                                          |    光明天使基金（资助盲人）  1069999011#}
+{#        合生元母婴救助基金  1069999012                                 |     赈济家庭箱   1069999013#}
+{#        行者基金（关注亚健康）   1069999014                         |     嫣然天使基金（救助贫困唇裂儿童）  106999906#}
+{#        东方天使基金   1069999016                                          |     马路天使   1069999018#}
+{#        成长天使基金   1069999019                                          |#}
+{#    </p>#}
+{#    <p>#}
+{#        2. 博爱助学计划项目#}
+{#        捐建博爱学校   1069999020                                          |     捐建红十字书库   1069999021#}
+{#        捐建博爱助学基金   1069999022                                   |     捐赠乡村教师培训   1069999023#}
+{#    </p>#}
+{#    <p>#}
+{#        3. 其他公益资助项目#}
+{#        捐赠中国红行动   1069999030                                       |     捐赠崔永元公益基金   1069999033#}
+{#    </p>#}
+    </div>
+{% endblock %}

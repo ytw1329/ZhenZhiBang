@@ -1,0 +1,253 @@
+{#{% extends 'myapp/base.html' %}#}
+{% block title %}
+<head>
+    <meta charset="UTF-8">
+    <title>中国儿童罕见病救助基金</title>
+</head>
+<style>
+
+    /* 整个外层容器的宽高 */
+    .nav {
+        width: 50%;height: 100px;margin:1% 5% 10% 45%;position: absolute;
+    }
+    /* 整个导航栏的宽高 */
+    .nav .menu {
+        width: 100%;
+        /* 导航栏居中 */
+        margin: 0 auto;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .nav li {
+        /* 对其菜单项左浮动，呈横向排列 */
+        float: left;
+        list-style-type:none;
+    }
+    /* 设置菜单项里的文字内容 */
+    .nav ul li a:link,
+    .nav ul li a:visited{
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        text-align: center;
+        background: pink;
+    }
+    /* 设置菜单项里文字点击的效果颜色 */
+    .nav ul li a:hover,
+    .nav ul li a:active {
+        background: lightpink;
+    }
+    /* 隐藏二级菜单 */
+    .nav ul li ul {
+        display: none;
+        position: absolute;
+        z-index: 10;
+    }
+    /* 让二级菜单在点击一级菜单项时才会出现 */
+    .nav ul li:hover ul {
+        display: block;
+    }
+    /* 清除二级菜单的浮动 */
+    .nav ul li ul li {
+        float: none;
+        background: lightpink;
+    }
+
+    .pic{
+        {#margin-left: 12%;#}
+        text-align: right;
+    }
+    .fuchuang{
+        background-image: url("/static/images/7.png");
+        background-color: white;
+        text-align: center;
+    }
+    .body1{
+        text-align: center;
+    }
+    .all{
+        background-color: rgba(255,255,255,0);
+        border: 4px solid pink;
+        border-radius: 15px;
+        margin: 60px;
+    }
+    .body{
+        text-align: left;
+        flex-direction: row;
+        display: flex;
+    }
+    .banner-introduction{
+        margin-right: 150px;
+        margin-left: 150px;
+    }
+    .body1{
+        text-align: center;
+    }
+    .tel{
+        font-size: medium;
+        text-align: center;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+       <div class="pic" style="width: 30%;height: 100px;margin: 0 60% 0 10%;position: absolute;">
+        <img src="/static/image/zzb.jpg" width="100%" height="150px">
+    </div>
+ <div class="nav">
+        <br><br>
+            <!-- 整个导航栏 -->
+            <ul class="menu">
+                <!-- 一级菜单 -->
+                <li>
+                    <a href="{% url 'index' %}">首页</a>
+                    <!-- 二级菜单 -->
+{#                    <ul>#}
+{#                        <li><a href="">我们的伙伴</a></li>#}
+{#                        {% if request.session.love_user.name %}#}
+{##}
+{#                            <li><a href="">志愿活动发布</a></li>#}
+{#                            <li><a href="">志愿活动申请</a></li>#}
+{##}
+{##}
+{#                        {% endif %}#}
+{#                        <li><a href="{% url 'childshow' %}">走失儿童信息预览</a></li>#}
+{#                    </ul>#}
+
+                </li>
+                <li>
+                    <a href="">我们的项目</a>
+                    <ul>
+                        <li><a href="" >公益基金会</a></li>
+                        <li><a href="{% url 'childshow' %}">宝贝回家</a></li>
+                        <li><a href="">关注罕见病</a></li>
+                    </ul>
+                </li>
+                <li> <a href="{% url 'adddata'  %}" >活动浏览/报名</a></li>
+
+                <li>
+{#                    {% if request.session.love_user.name %}#}
+{#                        <a href="{% url 'adddata'  %}"><span>活动浏览/报名</span></a>#}
+{#                    {% endif %}#}
+{#                        <a href="{% url 'dologout' %}"><span>退出登录</span></a>&nbsp;#}
+                </li>
+
+{#                <li><a href="{% url 'managelogin' %}">管理员登录</a></li>#}
+                <li>
+                    {% if request.session.love_user.name %}
+
+                        <a href="">用户名：{{ request.session.love_user.name }}</a>
+{#                    {{ request.session.love_user.name }}#}
+                        <ul>
+                            <form action="{% url 'findpage' %}" method="post" >
+                                {% csrf_token %}
+                                 <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find1"  value="{{ request.session.love_user.name }}" readonly="readonly" />
+{#                                 <button><span>个人中心</span></button>#}
+                                <a href=""><button  type="submit" style="width: 150px; /* 宽度 */
+                                                    height: 50px; /* 高度 */
+                                                    border-width: 0px; /* 边框宽度 */
+                                                    border-radius: 3px; /* 边框半径 */
+                                                    background: lightpink; /* 背景颜色 */
+                                                    outline: none; /* 不显示轮廓线 */
+                                                    font-family: Microsoft YaHei; /* 设置字体 */
+                                                    color: white; /* 字体颜色 */
+                                                    font-size: 17px; /* 字体大小 */"
+ >个人中心</button></a>
+                                </form>
+
+                        </ul>
+
+
+
+                        <li><a href="{% url 'dologout' %}">退出登录</a></li>
+                        {% else %}
+
+                            <a href="{% url 'login' %}"><span>用户登录 </span></a>
+
+
+
+                            <li><a href="{% url 'adminlogin' %}"><span>管理员登录 </span></a></li>
+                        &nbsp;
+
+{#                            <li><a href="{% url 'showdata'  %}"><span>活动浏     览</span></a></li>#}
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+
+
+    <br><br><br><br><br><br><br>
+    <hr>
+
+
+    <div class="all">
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <h1>手握明天公益捐助项目</h1>
+          <div class="details-label label">
+              <img src="./static/images/标签.png" width="20px">
+	        标签: &nbsp;&nbsp;强直性脊柱炎
+          </div>
+	      <p><p>中国初级卫生保健基金会秉承其一贯宗旨，满足并鼓励患者与疾病抗争的物质与精神的需求，帮助罹患类风湿关节炎及强直性脊柱炎疾病的患者获得更大支持。</p>
+         <p>类风湿关节炎、强直性脊柱炎疾病是对人类危害非常严重的疾病。为了帮助那些使用阿达木单抗注射液（修美乐®）进行治疗的患者，鼓励患者坚持治疗以获得显著疗效，艾伯维自愿向中国初级卫生保健基金会会无偿捐助阿达木单抗注射液（修美乐®）药品。</p><p>中国初级卫生保健基金会为此特别设立“手握明天公益捐助项目”，负责项目救助患者的的申请审查，组织项目注册医师对患者的医学检查评估，组织各地区基金会分支机构进行捐助药品发放，全程监督项目实施。</p><p>申请患者必须符合项目要求的医学标准和经济标准，通过基金会项目办审核才能获得（修美乐®）药品捐助。</p><p><br/></p>
+<!--     </div>-->
+<!--    <div class="dianhua">-->
+<!--        <div>-->
+<!--            <img src="http://www.51xinkang.com/res/t3/imgs/details-phone.png" >-->
+<!--            <h4>咨询热线</h4>-->
+<!--            <p>400-062-9990</p>-->
+<!--        </div>-->
+<!--        <div>-->
+
+<!--        </div>-->
+<!--&lt;!&ndash;        <p>400-062-9990</p>&ndash;&gt;-->
+<!--     </div>-->
+    </div>
+    <img src="./static/images/爱心.png" width="300px" height="300px">
+</div>
+
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <div class="details-title">
+             <h2>援助模式</h2>
+         </div>
+        <div class="details-item-contend">
+            <p style="text-indent: 0em;"><strong>捐助类型</strong><br/><strong>普通捐助</strong>：指为规范用药疗程及安全性评估，同时使患者在延长疗程后获得更大收益，建议项目医生筛选受助的患者是已在专业医疗机构使用5针（包括5针）或以上阿达木单抗注射液（修美乐®）治疗，根据医学评估结果需要进一步治疗的，通过本项目为其免费提供治疗所需阿达木单抗注射液（修美乐®）药品。<br/><strong>全免捐免</strong>：指在本项目执行期限内，向持有被县、区级民政部门认可的低保证及已连续一年以上领取低保金并适于接受阿达木单抗注射液（修美乐®）的患者免费提供治疗所需捐助药品。</p>
+        </div>
+    </div>
+</div>
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <div class="details-title">
+             <h2>申请条件</h2>
+         </div>
+        <div class="details-item-contend">
+             <p style="text-indent: 0em;"><strong>普通捐助：<br/></strong><strong>医学条件</strong><br/>1、在第一次接受阿达木单抗注射液（修美乐®）治疗前，患者必须在专业医疗机构进行结核相关检测以及乙型肝炎病毒感染的评估，除外活动性结核和活动性乙型肝炎病毒感染。若诊断为潜伏性结核，在使用本药物进行治疗前，必须根据当地治疗措施进行适当的抗结核预防治疗②；<br/>2、为规范用药疗程及安全性评估，同时使患者在延长疗程后获得更大收益，建议项目医生筛选受助的患者是已在专业医疗机构连续使用③5针（包括5针）或以上阿达木单抗注射液（修美乐®）治疗，且经临床评估能够继续从阿达木单抗注射液（修美乐®）治疗中获益；<br/>3、患者在申请捐助前，需要常规返回项目医生处进行随访和评估，并由项目协作医院提供评估报告，确定患者需继续使用阿达木单抗注射液（修美乐®）治疗，且无不可耐受的毒副反应；<br/>4、患者经专业医疗机构证实确诊为类风湿关节炎或强直性脊柱炎疾病，根据中国相关法律法规，由专业医疗机构医生判定可以使用阿达木单抗注射液（修美乐®）治疗，符合阿达木单抗注射液（修美乐®）在中国的适应证范围④，且由项目协作医院医生签字或盖章认可。<br/>*若患者发生任何不适，无论是否停用阿达木单抗注射液（修美乐®）使用，请及时联系项目热线及项目医生告知病情 。<br/><strong>其他条件</strong><br/>1、患者需在开始使用阿达木单抗注射液（修美乐®）治疗后进行项目预约;<br/>2、低收入家庭（家庭直系亲属包括父母，配偶和子女）的患者，本人根据自身工作状态，由单位人事部门和户籍所在地街道/乡（镇）人民政府出具的符合以下要求的低收入证明<br/>a.无工作单位的人员，必须由当地乡（镇）人民政府或街道办事处负责人签字盖章；<br/>b.有工作单位的人员，必须由其单位人事部门负责人签字并盖人事专用章，以及当地乡（镇）级以上政府或街道办事处负责人签字盖章 。<br/>3、本次捐助对象为持有中华人民共和国居民身份证/军官证的大陆患者；<br/>4、患者接受本次捐助前自费使用阿达木单抗注射液（修美乐®）必须是针对中国大陆包装的且通过艾伯维认可的流通渠道购买的；<br/>5、结核相关检测以及乙型肝炎病毒感染的评估必须提供PPD（或T-SPOT）检测、胸片影像学报告、肝功能、乙肝两对半这四项检查报告⑤（必要时提供HBV-DNA的检查报告）；如为潜伏性结核，使用生物制剂治疗前必须已开始一个完整疗程的规范抗结核治疗，并提供相关治疗病历记录。<br/>①为了使患者从本项目获益，项目期间，可重复申请捐助；<br/>②具体内容请参见修美乐®产品说明书；<br/>③连续使用指使用阿达木单抗注射液（修美乐®）治疗2次的间隔不超过4周；<br/>④阿达木单抗注射液（修美乐®）在中国的适应证范围：成人（年满18周岁）类风湿关节炎和强直性脊柱炎患者；<br/>⑤结核相关检测以及乙型肝炎病毒感染的评估，其中结核筛查的时效为首次阿达木单抗注射液（修美乐®）治疗前3个月内，乙肝筛查的时效为首次阿达木单抗注射液（修美乐®）治疗前6个月内，结核及乙肝筛查需每年复查一次，检查报告一年内有效。</p><p style="text-indent: 0em;"><strong>全免捐助<br/></strong><strong>医学条件</strong><br/>1、在第一次接受阿达木单抗注射液（修美乐®）治疗前，患者必须在专业医疗机构进行结核相关检测以及乙型肝炎病毒感染的评估，除外活动性结核和活动性乙型肝炎病毒感染。若诊断为潜伏性结核，在使用本药物进行治疗前，必须根据当地治疗措施进行适当的抗结核预防治疗；<br/>2、患者经专业医疗机构证实确诊为类风湿关节炎或强直性脊柱炎疾病，根据中国相关法律法规，由专业医疗机构医生判定可以使用阿达木单抗注射液（修美乐®）治疗，符合阿达木单抗注射液（修美乐®）在中国的适应证范围，并提供病情证明资料，患者在申请捐助前，需要常规返回项目医生处进行随访和评估，并由项目协作医院提供评估报告，且由项目协作医院医生签字或盖章认可。<br/>*若患者发生任何不适，无论是否停用阿达木单抗注射液（修美乐®）使用，请及时联系项目热线及项目医生告知病情<br/>    <br><br><strong>其他条件</strong><br/>1、患者需在开始使用阿达木单抗注射液（修美乐®）治疗前进行项目预约；<br/>2、患者需持有被县、区级民政部门认可的低保证的患者，并出具上一年度低保金领取记录复印件（领取单位盖章）；<br/>3、本次全免捐助对象为持有中华人民共和国居民身份证/军官证的大陆患者。<br/>*申请全免捐助前需拨打项目求助热线400-062-9990进行预约<br/>*为了使更多患者从本项目获益，每位低保患者能够接受最多6支的捐助药品<br/>*全免捐助数量有限，药品发放完毕，全免捐助结束</p>                </div>
+        </div>
+    </div><br><br><br><br>
+    <div class="body1">
+        <div>
+        <text>求助电话:400-062-9990</text><br>
+        <text>周一至周五</text><br>
+        <text>早上8：30-晚上18：30</text>
+            </div>
+            <div>
+                 <img src="./static/images/二维码/手握明天.png">
+           </div>
+    </div>
+    <style>
+        #nav { width:150px; height: 200px; border: 1px solid #D4CD49; position:fixed;left:0;top:30% }
+    </style>
+        <div id="nav" class="fuchuang">
+            <a href="{% url 'money' %}">我要捐赠</a>
+        </div>
+    <div class="pic">
+        <img src="./static/images/7.png">
+    </div>
+</div>
+
+
+{% endblock %}

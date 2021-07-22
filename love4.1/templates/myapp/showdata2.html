@@ -1,0 +1,57 @@
+{% extends 'myapp/base.html' %}
+{% block title %}
+<title>爱心公益平台</title>
+{% endblock %}
+
+{% block content %}
+<center>
+    <table border="1" style="color: dodgerblue">
+        <thead>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>活动标题</td>
+            <td>活动内容</td>
+            <td>活动时间</td>
+            <td>活动地点</td>
+            <td>举办单位</td>
+            <td>单位资质</td>
+            <td>性别</td>
+            <td>电话</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for port in act %}
+        <tr>
+            <td>{{ port.id }}</td>
+            <td>{{ port.name }}</td>
+            <td>{{ port.title }}</td>
+            <td>{{ port.context }}</td>
+            <td>{{ port.time }}</td>
+            <td>{{ port.place }}</td>
+            <td>{{ port.Organizer }}</td>
+            <td>{{ port.qualifications }}</td>
+            <td>{{ port.sex }}</td>
+            <td>{{ port.tel }}</td>
+{#            <td><a href="{% url 'adddata' %}">报名</a></td>#}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'showdata2' pIndex|add:-1 %}">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {% for p in page_list %}
+            {% if p == pIndex %}
+                <a href="{% url 'showdata2' p %}" style="color: red">{{ p }}</a>&nbsp;&nbsp;
+            {% else %}
+                <a href="{% url 'showdata2' p %}">{{ p }}</a>&nbsp;&nbsp;
+            {% endif %}
+        {% endfor %}
+        <a href="{% url 'showdata2' pIndex|add:1 %}">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+</center>
+{#<ul>#}
+{#    <li><a href="{% url 'dataload' %}">1.数据录入</a></li>#}
+{#    <li><a href="{% url 'showdata' 1 %}">2.全球机场信息浏览</a></li>#}
+{#</ul>#}
+
+{% endblock %}

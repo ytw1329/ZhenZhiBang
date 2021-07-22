@@ -1,0 +1,17 @@
+{% extends 'myapp/index.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+ <script>
+    var msg = confirm("上传成功");
+    if (msg) {
+        window.location.href = "{% url 'childshow' %}";
+    }else{
+        window.location.href = "{% url 'childshow' %}";
+    }
+
+</script>
+{% endblock %}

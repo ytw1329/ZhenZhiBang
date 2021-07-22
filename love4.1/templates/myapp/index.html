@@ -1,0 +1,285 @@
+{% extends 'myapp/base.html' %}
+{% block title %}
+<title>首页</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./static/css/index.css">
+    </head>
+{% endblock %}
+
+{% block content %}
+    <script src="./static/js/lunbotu.js"></script>
+    <script language="javascript" type="text/javascript" src="./static/js/gongdong.js"></script>
+
+    <br>
+    <div >
+    <a href="{% url 'help' %}"><img style="height: 250px;width: 100%;margin: 0px 10px 0px 10px;position: absolute;" src="./static/images/help.jpg"></a>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div id="max">
+        <div class="re">
+            <ul>
+                <li><img src="./static/image/滑动1.jpg" alt=""></li>
+                <li><img src="./static/image/滑动2.jpg" alt=""></li>
+                <li><img src="./static/image/滑动3.jpg" alt=""></li>
+                <li><img src="./static/image/滑动4.jpg" alt=""></li>
+                <li><img src="./static/image/滑动5.jpg" alt=""></li>
+            </ul>
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+    </div>
+
+    <center>
+			<div class="maindiv">
+					<div class="leftdiv">
+
+							<form action="{% url 'childshow2' %}" method="POST">
+                                {% csrf_token %}
+								<button  class="button2 button" >
+									<span>走失儿童信息卡</span>
+								</button>
+						    </form>
+						    <form>
+                                <text  class="button5 button" >
+                                    <span>朱梓煜(男)----走失地点：湖北省,黄冈市</span>
+                                </text>
+						    </form>
+						    <div style="border:1.5px solid #ccc"></div><br>
+						    <form action="" method="POST">
+                                <form action="" method="POST">
+                                    <text  class="button5 button" >
+                                        <span>谭一豪(男)----走失地点：新疆昌吉</span>
+                                    </text>
+							    </form>
+						    </form>
+						    <div style="border:1.5px solid #ccc"></div><br>
+						    <form action="" method="POST">
+                                <form action="" method="POST">
+                                    <text  class="button5 button" >
+                                        <span>李兰兰(女)----走失地点：浙江省杭州市</span>
+                                    </text>
+                                </form>
+						    </form>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="" method="POST">
+                                <form action="" method="POST">
+                                    <text  class="button5 button" >
+                                        <span>吴潇晴(女)----走失地点：广东省揭阳市</span>
+                                    </text>
+                                </form>
+                            </form>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="https://news.cctv.com/" method="POST">
+                                <button  class="button4 button" >
+                                    <span>新闻动态</span>
+                                </button>
+                            </form>
+                            <form action="" method="POST">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <button  class="button5 button" >
+                                            <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%225uIKjvgBKGdxMQRwRFqWow%22%7D" style="background: white;color: black">河南暴雨互助</a>
+                                        </button>
+                                    </form>
+                            </form>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="" method="POST">
+                                <form action="" method="POST">
+                                    <button  class="button5 button" >
+                                        <a href="https://edu.cctv.com/2021/07/19/PHOAbGcHZHa703C4RZkHnG1e210719.shtml#626654926219067528_1" style="background: white;color: black">红心向党，庆党100周年</a>
+                                    </button>
+                                </form>
+                            </form>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="" method="POST">
+                                <form action="" method="POST">
+                                    <button  class="button5 button" >
+                                        <a href="https://news.cctv.com/2021/07/22/ARTIggEUDEqMs5ye3820tQ5I210722.shtml?spm=C94212.PBZrLs0D62ld.EKoevbmLqVHC.16" style="background: white;color: black">河南最大持续降水量907毫米！</a>
+                                    </button>
+                                </form>
+                            </from>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="" method="POST"></form>
+                                <button  class="button5 button" >
+                                    <a href="https://news.cctv.com/2021/07/22/ARTIIXUkcoZ26w4YPjC7wr0a210722.shtml?spm=C94212.PBZrLs0D62ld.EKoevbmLqVHC.89" style="background: white;color: black">国新办介绍新冠病毒溯源有关情况</a>
+                                </button>
+                            </form>
+					</div>
+					<div class="centerdiv"></div>
+					<div class="rightdiv">
+							<form action="{% url 'jijinhui' %}" method="POST">
+                                {% csrf_token %}
+									<button  class="button2 button" >
+										<span>公益基金会</span>
+									</button>
+								</form>
+								<form>
+										<form>
+												<span><button class="button5 button"  >
+                                                    <a href="https://www.cfdp.org/" style="background: white;color: black">中国残疾人公益基金会</a>
+												</button>
+                                            </span>
+											</form>
+                                </form>
+									<div style="border:1.5px solid #ccc"></div><br>
+									<form>
+										<form>
+												<span><button class="button5 button"  >
+                                                    <a href="http://www.cepf.org.cn/" style="background: white;color: black">中华环境保护基金会</a>
+												</button>
+                                            </span>
+											</form>
+                                </form>
+									<div style="border:1.5px solid #ccc"></div><br>
+									<form>
+										<form>
+												<span><button class="button5 button"  >
+                                                    <a href="http://www.cvsf.org.cn/" style="background: white;color: black">中国志愿服务基金会</a>
+												</button>
+                                            </span>
+											</form>
+                                </form>
+									<div style="border:1.5px solid #ccc"></div><br>
+									<form>
+										<form>
+												<span><button class="button5 button"  >
+                                                    <a href="https://www.cydf.org.cn/" style="background: white;color: black">中国青少年发展服务基金会</a>
+												</button>
+                                            </span>
+											</form>
+                                </form>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="{% url '罕见病' %}">
+                                <button  class="button4 button" >
+                                    <span>关注罕见病</span>
+                                </button>
+                            </form>
+                            <form action="{% url 'chushengquexian' %}" method="POST">
+                                {% csrf_token %}
+                                <form action="" method="POST">
+                                    <button  class="button5 button" >
+                                        <span>中国儿童罕见病救助基金</span>
+                                    </button>
+                                </form>
+                            </form>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="{% url 'geliewei' %}" method="POST">
+                                {% csrf_token %}
+                                <form action="" method="POST">
+                                    <button  class="button5 button" >
+                                        <span>格列卫全球患者救助基金</span>
+                                    </button>
+                                </form>
+                            </form>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="{% url 'baikeqi' %}" method="POST">
+                                {% csrf_token %}
+                                <form action="" method="POST">
+                                    <button  class="button5 button" >
+                                        <span>拜科奇血友病儿童援助项目</span>
+                                    </button>
+                                </form>
+                            </form>
+                            <div style="border:1.5px solid #ccc"></div><br>
+                            <form action="{% url 'tomorrow' %}" method="POST">
+                                {% csrf_token %}
+                                <!-- <form action="" method="POST"> -->
+                                <button  class="button5 button" >
+                                    <span>手握明天公益捐助项目</span>
+                                </button>
+                            </form>
+
+					</div>
+				</div>
+
+    </center>
+    <br><br>
+
+    <br><br><br>
+<form>
+<center>
+	<button class="button6 button7">
+        <span><a href="{% url 'showdata' %}" style="background: white;color: black">公益活动推荐</a></span>
+	</button>
+	<div class="Container">
+            <div id="carousel">
+				<figure><img src="./static/image/滚动1.jpg" alt=""></figure>
+                <figure><img src="./static/image/滚动2.jpg" alt=""></figure>
+                <figure><img src="./static/image/滚动3.jpg" alt=""></figure>
+                <figure><img src="./static/image/滚动4.jpg" alt=""></figure>
+                <figure><img src="./static/image/滚动5.jpg" alt=""></figure>
+				<figure><img src="./static/image/滚动6.jpg" alt=""></figure>
+            </div>
+        </div>
+</form>
+<br><br><br><br><br>
+</center>
+<center>
+<form>
+	<button class="button6 button7">
+		<span>公平 公正 公开</span>
+	</button><br>
+
+
+	<div class="p1">历史公益支出总金额</div>
+    <div class="p2">
+
+        {% for port in summ reversed %}
+            {% if forloop.first %}
+                {{ port.sum}}元
+            {% endif %}
+                    {% endfor %}
+    </div>
+
+
+	<div class="p2"></div>
+	<center>
+{#    <a href="{% url 'show' %}">来看看哪些爱心人士捐款了吧！——————</a>#}
+
+
+    <hr style="width: 755px; border: dotted;color: dimgrey">
+    <table style="width: 720px;color: black;text-align: center;font-family: 华文新魏;font-size: 30px">
+        <tr>
+            <td>捐款人</td>
+            <td>捐款项目</td>
+            <td>捐款金额</td>
+            <td>联系电话</td>
+        </tr>
+    </table>
+		<p class="dashed">
+				<marquee direction="up" height="400" scrollamount="3" behavior="smooth" style="text-align: center">
+                    <center>
+                    {% for port in shows %}
+                        <table style="font-family: 楷体;font-size: larger">
+                            <tr>
+                                <td style="text-align: center;width: 135px">{{ port.dname }}</td>&nbsp;&nbsp;&nbsp;
+                                <td style="text-align: center;width: 210px">{{ port.dproject }}</td>&nbsp;&nbsp;&nbsp;
+                                <td style="text-align: center;width: 165px">{{ port.damount }}元</td>&nbsp;&nbsp;&nbsp;
+                                <td style="text-align: center;width: 195px">{{ port.dtel }}</td>
+                            </tr>
+                        </table>
+                    {% endfor %}
+                    </center>
+			</marquee>
+		</p>
+    </center>
+</form>
+</center>
+    <br><br><br><br>
+    <div class="boxa">
+    <hr color="red"><br>
+        <center>
+            <h2>爱心公益</h2>
+            <br>
+            <h3>XXX进行备案</h3><br>
+            <p>localhost:8000</p><br><br>
+        </center>
+    <div class="clear"></div>
+    </div>
+
+{% endblock %}

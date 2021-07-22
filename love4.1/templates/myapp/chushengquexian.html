@@ -1,0 +1,264 @@
+{#{% extends 'myapp/base.html' %}#}
+{% block title %}
+<head>
+    <meta charset="UTF-8">
+    <title>中国儿童罕见病救助基金</title>
+</head>
+<style>
+
+    /* 整个外层容器的宽高 */
+    .nav {
+        width: 50%;height: 100px;margin:1% 5% 10% 45%;position: absolute;
+    }
+    /* 整个导航栏的宽高 */
+    .nav .menu {
+        width: 100%;
+        /* 导航栏居中 */
+        margin: 0 auto;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .nav li {
+        /* 对其菜单项左浮动，呈横向排列 */
+        float: left;
+        list-style-type:none;
+    }
+    /* 设置菜单项里的文字内容 */
+    .nav ul li a:link,
+    .nav ul li a:visited{
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        text-align: center;
+        background: pink;
+    }
+    /* 设置菜单项里文字点击的效果颜色 */
+    .nav ul li a:hover,
+    .nav ul li a:active {
+        background: lightpink;
+    }
+    /* 隐藏二级菜单 */
+    .nav ul li ul {
+        display: none;
+        position: absolute;
+        z-index: 10;
+    }
+    /* 让二级菜单在点击一级菜单项时才会出现 */
+    .nav ul li:hover ul {
+        display: block;
+    }
+    /* 清除二级菜单的浮动 */
+    .nav ul li ul li {
+        float: none;
+        background: lightpink;
+    }
+
+    .pic{
+        {#margin-left: 12%;#}
+        text-align: right;
+    }
+    .fuchuang{
+        background-image: url("/static/images/7.png");
+        background-color: white;
+        text-align: center;
+    }
+    .body1{
+        text-align: center;
+    }
+    .all{
+        background-color: rgba(255,255,255,0);
+        border: 4px solid pink;
+        border-radius: 15px;
+        margin: 60px;
+    }
+    .body{
+        text-align: left;
+        flex-direction: row;
+        display: flex;
+    }
+    .banner-introduction{
+        margin-right: 150px;
+        margin-left: 150px;
+    }
+    .body1{
+        text-align: center;
+    }
+    .tel{
+        font-size: medium;
+        text-align: center;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+       <div class="pic" style="width: 30%;height: 100px;margin: 0 60% 0 10%;position: absolute;">
+        <img src="/static/image/zzb.jpg" width="100%" height="150px">
+    </div>
+ <div class="nav">
+        <br><br>
+            <!-- 整个导航栏 -->
+            <ul class="menu">
+                <!-- 一级菜单 -->
+                <li>
+                    <a href="{% url 'index' %}">首页</a>
+                    <!-- 二级菜单 -->
+{#                    <ul>#}
+{#                        <li><a href="">我们的伙伴</a></li>#}
+{#                        {% if request.session.love_user.name %}#}
+{##}
+{#                            <li><a href="">志愿活动发布</a></li>#}
+{#                            <li><a href="">志愿活动申请</a></li>#}
+{##}
+{##}
+{#                        {% endif %}#}
+{#                        <li><a href="{% url 'childshow' %}">走失儿童信息预览</a></li>#}
+{#                    </ul>#}
+
+                </li>
+                <li>
+                    <a href="">我们的项目</a>
+                    <ul>
+                        <li><a href="" >公益基金会</a></li>
+                        <li><a href="{% url 'childshow' %}">宝贝回家</a></li>
+                        <li><a href="">关注罕见病</a></li>
+                    </ul>
+                </li>
+                <li> <a href="{% url 'adddata'  %}" >活动浏览/报名</a></li>
+
+                <li>
+{#                    {% if request.session.love_user.name %}#}
+{#                        <a href="{% url 'adddata'  %}"><span>活动浏览/报名</span></a>#}
+{#                    {% endif %}#}
+{#                        <a href="{% url 'dologout' %}"><span>退出登录</span></a>&nbsp;#}
+                </li>
+
+{#                <li><a href="{% url 'managelogin' %}">管理员登录</a></li>#}
+                <li>
+                    {% if request.session.love_user.name %}
+
+                        <a href="">用户名：{{ request.session.love_user.name }}</a>
+{#                    {{ request.session.love_user.name }}#}
+                        <ul>
+                            <form action="{% url 'findpage' %}" method="post" >
+                                {% csrf_token %}
+                                 <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find1"  value="{{ request.session.love_user.name }}" readonly="readonly" />
+{#                                 <button><span>个人中心</span></button>#}
+                                <a href=""><button  type="submit" style="width: 150px; /* 宽度 */
+                                                    height: 50px; /* 高度 */
+                                                    border-width: 0px; /* 边框宽度 */
+                                                    border-radius: 3px; /* 边框半径 */
+                                                    background: lightpink; /* 背景颜色 */
+                                                    outline: none; /* 不显示轮廓线 */
+                                                    font-family: Microsoft YaHei; /* 设置字体 */
+                                                    color: white; /* 字体颜色 */
+                                                    font-size: 17px; /* 字体大小 */"
+ >个人中心</button></a>
+                                </form>
+
+                        </ul>
+
+
+
+                        <li><a href="{% url 'dologout' %}">退出登录</a></li>
+                        {% else %}
+
+                            <a href="{% url 'login' %}"><span>用户登录 </span></a>
+
+
+
+                            <li><a href="{% url 'adminlogin' %}"><span>管理员登录 </span></a></li>
+                        &nbsp;
+
+{#                            <li><a href="{% url 'showdata'  %}"><span>活动浏     览</span></a></li>#}
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+
+
+    <br><br><br><br><br><br><br>
+    <hr>
+
+<div class="all">
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <h1>中国出生缺陷干预救助基金会</h1>
+          <div class="details-label label">
+              <img src="./static/images/标签.png" width="20px">
+	        标签:儿童罕见病
+          </div>
+	      <p><p>
+                中国是一个出生缺陷的高发国家。据《中国出生缺陷防治报告（2012）》统计，目前我国每年新生儿约为1600万人，出生缺陷发生率约为5.6%，全国每年新增出生缺陷患儿约90万例，并呈逐年上升趋势。其中，约35%的患儿在出生后死亡，40%患儿出现终身残疾，不仅终身受到出生缺陷的困扰，还给家庭和社会带来沉重的精神和经济负担。另据《中国妇幼卫生事业发展报告（2011）》显示，新中国成立以来，我国婴儿死亡率以及5岁以下儿童死亡率持续下降，提前实现了联合国的千年发展目标，但出生缺陷率近15年来增长近七成，由1996年的97.7/万，上升到2010年的149.9/万，增长幅度达到70.9%。
+          </p></p>
+    </div>
+    <img src="./static/images/义诊.png" width="300px" height="300px">
+</div>
+
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <div class="details-title">
+             <h2>援助模式</h2>
+         </div>
+        <div class="details-item-contend">
+            <p style="text-indent: 0em;"><strong>捐赠方式</strong><br/><strong>银行汇款</strong>：银行转账至（请注明捐助项目）：<br>
+账 号：3428 5790 2867<br>
+户 名：中国出生缺陷干预救助基金会<br>
+开户行：中国银行北京兰华国际支行<br>
+
+* 注意：<br>
+
+1.银行汇款请您在留言处留下姓名和联系方式，方便捐赠方进行到账查询及接收邮寄捐赠收据。<br>
+
+2.领取捐赠收据，请联系010-84856887。<br/><strong>邮局汇款</strong>：邮局汇款至（请注明捐助项目）：<br>
+
+中国出生缺陷干预救助基金会<br>
+
+地 址：北京市东城区安定门外大街2号安贞大厦19层<br>
+
+邮 编：100013<br>
+
+电 话：86-010-64829883<br>
+
+传 真：86-010-64829001<br>
+
+* 注意：<br>
+
+1.邮局汇款请您在留言处留下姓名和联系方式，方便捐赠方进行到账查询及接收邮寄捐赠收据。 <br>
+
+2.领取捐赠收据，请联系010-84856887。
+</p>
+        </div>
+    </div>
+</div>
+<div class="body">
+     <div class="banner-introduction" style="border-bottom:0px;">
+         <div class="details-title">
+             <h2>我们的项目</h2>
+         </div>
+        <div class="details-item-contend">
+             <p style="text-indent: 0em;"><strong>先天性畸形救助项目：<br/></strong><br/>出生缺陷是指婴儿出生前发生的身体结构、功能或代谢异常，是导致早期流产、死胎、婴幼儿死亡和先天残疾的主要原因。目前已知的出生缺陷超过8000种，常见的有先天性心脏病、唇裂、腭裂、多指、内翻、苯丙酮尿症、地中海贫血等。出生缺陷已经构成我国的重大公共卫生问题。根据原卫生部发布的《中国出生缺陷防治报告（2012）》统计，目前我国总出生缺陷发生率为5.6%，全国每年新增出生缺陷患儿高达90万例。出生缺陷患儿中约有30%在5岁前死亡、40%终生残疾、30%可以治愈或纠正。出生缺陷是导致早期流产、死胎、婴幼儿死亡和儿童先天残疾的主要原因，给社会和家庭带来了沉重的压力和精神负担。
+
+在“十二·五”期间，中国出生缺陷干预救助基金会就已经开展了遗传代谢病救助，然而除遗传代谢病外，仍有很多可治、可控的出生缺陷疾病却因为缺少特定救助资金和措施，无法进行有效救助，这其中就包括先天性结构畸形。先天性结构畸形是出生缺陷的一大类型，也是目前我国出生缺陷发病率最高的一类疾病，占据了出生缺陷发病率的前十位，其致病原因复杂，可涉及身体所有系统和器官，严重影响儿童生存能力及生长发育，是引起儿童死亡或残障的主要原因。<br/>
+                 <a href="http://www.csqx.org.cn/list.aspx?id=877919995095&prjid=42">项目详情</a>
+             <p style="text-indent: 0em;"><strong>地中海拼写救助项目：<br/></strong><br/>地中海贫血是我国南方省份地方高发的重大出生缺陷疾病。开展地贫防治，减少重型地贫儿出生，提高患病儿童医疗保障救助和健康水平，是实施健康扶贫工程、推进健康中国建设的重要举措。自2012年起，原国家卫生计生委在我国10个地贫高发省（区、市）启动实施地中海贫血防控试点项目，为新婚和计划怀孕夫妇免费提供地贫筛查、基因检测和产前诊断等服务，减少重型地贫儿出生，取得明显成效。
+
+    为进一步做好出生缺陷防治工作，完善地贫防治服务和政策体系，助力健康扶贫和健康中国建设，卫健委妇幼司联合中国出生缺陷干预救助基金会于2018年、2019年在福建、广西、海南、贵州四省（区）开展地中海贫血救助项目试点工作，同时下发《关于开展地中海贫血救助项目试点工作的通知》（国卫妇幼出防便函〔2018〕22号）部署相关工作。针对项目地区临床确诊为轻型轻型α地中海贫血（输血依赖型）、中间型α地中海贫血（血红蛋白H病）、中间型β地中海贫血、重型β地中海贫血的贫困地贫患儿给予3000元-10000元补助助。<br>
+ <a href="http://www.csqx.org.cn/list.aspx?id=877919995095&prjid=51">项目详情</a>
+        </div>
+    </div><br><br><br><br>
+    <style>
+        #nav { width:150px; height: 200px; border: 1px solid #D4CD49; position:fixed;left:0;top:30% }
+    </style>
+        <div id="nav" class="fuchuang">
+            <a href="{% url 'money' %}">我要捐赠</a>
+        </div>
+</div>
+        <div class="pic">
+        <img src="./static/images/7.png">
+    </div>
+</div>
+{% endblock %}

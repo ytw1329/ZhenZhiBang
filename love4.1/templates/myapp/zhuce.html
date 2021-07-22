@@ -1,0 +1,60 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+    <title>注册</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./static/css/log_reg.css">
+    </head>
+{% endblock %}
+
+{% block content %}
+    <div class="wrap">
+    <div class="container">
+        <h1>填写注册信息</h1>
+        <form action="{% url 'zhuceing'%}" method='post'>
+            {% csrf_token %}
+            <input type="text" name="name"  placeholder="Your username"/>
+{#            <input type="text" placeholder="Your usersex"/>#}
+            <input type="password"  id="password"  name="password" placeholder="password" />
+{#            <input type="password" name="password" id="password_check" onblur="check()"/><span id="warning">   </span></p>#}
+{#            <input type="password" placeholder="Please confirm your password"  />#}
+{#            <input type="text" placeholder="Your email"/>#}
+            <input type="text" name="tel" placeholder="Your telephone"/>
+
+            <input type="submit" value="注册"/>
+            <input type="reset" value="重置"/>
+
+            <p class="change_link" align="center">
+                <span class="text">Already a member ?</span>
+                <a href="{% url 'login' %}" class="to_login"> 同意并登录 </a>
+            </p>
+        </form>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+{#    <script>#}
+{##}
+{#function check(){#}
+{#	if(document.getElementById("password").value!=#}
+{#		document.getElementById("password_check").value)#}
+{#	{#}
+{#		document.getElementById("warning").innerHTML="   两次密码的输入不一致";#}
+{#	}else{#}
+{#		document.getElementById("warning").innerHTML="   ";#}
+{#	}#}
+{#}#}
+{##}
+{#</script>#}
+
+{% endblock %}

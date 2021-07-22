@@ -1,0 +1,360 @@
+{#{% extends 'myapp/base.html' %}#}
+
+{% block title %}
+<title>查询儿童信息</title>
+    <head>
+    <style>
+                /* 整个外层容器的宽高 */
+.nav {
+    width: 40%;height: 100px;margin:0 10% 0 50%;position: absolute;
+}
+/* 整个导航栏的宽高 */
+.nav .menu {
+    width: 100%;
+    /* 导航栏居中 */
+    margin: 0 auto;
+    height: 100%;
+    box-sizing: border-box;
+}
+.nav li {
+    /* 对其菜单项左浮动，呈横向排列 */
+    float: left;
+    list-style-type:none;
+}
+/* 设置菜单项里的文字内容 */
+.nav ul li a:link,
+.nav ul li a:visited{
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    background: pink;
+}
+/* 设置菜单项里文字点击的效果颜色 */
+.nav ul li a:hover,
+.nav ul li a:active {
+    background: lightpink;
+}
+/* 隐藏二级菜单 */
+.nav ul li ul {
+    display: none;
+    position: absolute;
+    z-index: 10;
+}
+/* 让二级菜单在点击一级菜单项时才会出现 */
+.nav ul li:hover ul {
+    display: block;
+}
+/* 清除二级菜单的浮动 */
+.nav ul li ul li {
+    float: none;
+    background: lightpink;
+}
+
+      {#表格#}
+ .body {
+        {#background-image: url(/Content/z4.jpg);#}
+        background-size: cover;
+    }
+    table {
+        margin-top: 30px;
+        font-family: STKaiti;
+        border-collapse: collapse;
+        border: 1px dashed white;
+    }
+
+        table tbody {
+            display: block;
+            height: 500px;
+            overflow-y: scroll;
+        }
+
+
+        table thead,
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+    table tr td:nth-child(9) {
+        background-color:white;
+    }
+    h1 {
+        font-size: 40px;
+        text-align: center;
+        letter-spacing: 15px;
+        color: gray;
+        font-family: STKaiti;
+    }
+    #all-requst {
+        margin-top: 30px;
+        font-family: STKaiti;
+    }
+
+        table tr:nth-child(even) {
+            background-color: #FFFFFF;
+        }
+        table tr:nth-child(odd) {
+            background-color: #E6E6FA;
+        }
+        table th:nth-child(even) {
+            background-color: #DDDDDD;
+        }
+
+    table th:nth-child(odd) {
+        background-color: #CCCCFF;
+    }
+
+    table, thead, tbody {
+        width: 1800px;
+    }
+
+    th {
+        color: white;
+        height: 40px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: lighter;
+        letter-spacing: 2px;
+        border-radius:5px;
+    }
+    tr, td {
+        border: 1px dotted white;
+        height: 20px;
+        text-align: center;
+    }
+
+    tbody {
+        font-size: 1em;
+        padding: 20px;
+    }
+    table tr:hover {
+        background-color: #CCDDFF;
+    }
+
+    #accept {
+        text-align: center;
+        background-color: #CCDDFF;
+        border: none;
+        border-radius: 30px 10px;
+        width: 60px;
+        height: 30px;
+        margin-left: 20px;
+    }
+
+        /*搜索框6*/
+        {#.bar6 {background: rgb(245,212,217);}#}
+        .bar6 input {
+            border: 2px solid lightpink;
+            border-radius: 5px;
+            background: transparent;
+            top: 0;
+            right: 0;
+            font-size: 25px;
+        }
+        .bar6 button {
+            background: pink;
+            border-radius: 0 5px 5px 0;
+            border-color: rgb(255,192,203);
+            width: 70px;
+            top: 0;
+            right: 0;
+        }
+        .bar6 button:before {
+            content: "搜索";
+            font-size: 25px;
+            color: deeppink;
+        }
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            font-family: "Microsoft YaHei","宋体","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif, FreeSans, Arimo;
+        }
+
+        #container {
+            width: 500px;
+            height: 820px;
+            margin: 0 auto;
+        }
+        div.search {padding: 30px 0;}
+
+        form {
+            position: relative;
+            width: 500px;
+            {#height: 100px;#}
+            margin: 0 auto;
+        }
+
+        input, buttonfind {
+            border: none;
+            outline: none;
+        }
+
+        input {
+            width: 100%;
+            height: 60px;
+            padding-left: 13px;
+        }
+
+        .buttonfind {
+            height: 60px;
+            width: 60px;
+            cursor: pointer;
+            position: absolute;
+        }
+    </style>
+    </head>
+{% endblock %}
+
+{% block content %}
+
+         <div style="width: 30%;height: 100px;margin: 0 55% 0 15%;position: absolute;">
+        <img src="/static/image/zzb.jpg" width="100%" height="100px">
+    </div>
+
+     <div class="nav">
+        <br><br>
+            <!-- 整个导航栏 -->
+            <ul class="menu">
+                <!-- 一级菜单 -->
+                <li>
+                    <a href="{% url 'index' %}">首页</a>
+                    <!-- 二级菜单 -->
+{#                    <ul>#}
+{#                        <li><a href="">我们的伙伴</a></li>#}
+{#                        {% if request.session.love_user.name %}#}
+{##}
+{#                            <li><a href="">志愿活动发布</a></li>#}
+{#                            <li><a href="">志愿活动申请</a></li>#}
+{##}
+{##}
+{#                        {% endif %}#}
+{#                        <li><a href="{% url 'childshow' %}">走失儿童信息预览</a></li>#}
+{#                    </ul>#}
+
+                </li>
+
+                <li>
+                    {% if request.session.love_user.name %}
+                        <a href="{% url 'adddata'  %}"><span>活动浏览/报名</span></a>
+                    {% endif %}
+{#                        <a href="{% url 'dologout' %}"><span>退出登录</span></a>&nbsp;#}
+                </li>
+
+{#                <li><a href="{% url 'managelogin' %}">管理员登录</a></li>#}
+                <li>
+                    {% if request.session.love_user.name %}
+
+                        <a href="">用户名：{{ request.session.love_user.name }}</a>
+{#                    {{ request.session.love_user.name }}#}
+                        <ul>
+                            <form action="{% url 'findpage' %}" method="post" >
+                                {% csrf_token %}
+                                 <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find1"  value="{{ request.session.love_user.name }}" readonly="readonly" />
+{#                                 <button><span>个人中心</span></button>#}
+                                <a href=""><button  type="submit" style="width: 150px; /* 宽度 */
+                                                    height: 50px; /* 高度 */
+                                                    border-width: 0px; /* 边框宽度 */
+                                                    border-radius: 3px; /* 边框半径 */
+                                                    background: lightpink; /* 背景颜色 */
+                                                    outline: none; /* 不显示轮廓线 */
+                                                    font-family: Microsoft YaHei; /* 设置字体 */
+                                                    color: white; /* 字体颜色 */
+                                                    font-size: 17px; /* 字体大小 */">个人中心</button></a>
+                                </form>
+
+                        </ul>
+
+
+                        <li><a href="{% url 'dologout' %}">退出登录</a></li>
+                        {% else %}
+
+                            <a href="{% url 'login' %}"><span>用户登录 </span></a>
+
+
+
+                            <li><a href="{% url 'adminlogin' %}"><span>管理员登录 </span></a></li>
+
+
+                            <li><a href="{% url 'showdata'  %}"><span>活动浏览</span></a></li>
+                {% endif %}
+                </li>
+            </ul>
+        </div>
+
+
+    <br><br><br><br><br>
+    <hr>
+
+
+<center>
+<div class="body">
+{#    <form action="{% url 'findpage2' 1 %}" method="post">#}
+{#        {% csrf_token %}#}
+{#        <input type="text" name="find2"/>#}
+{#        <input type="submit" name="find" value="查询姓名"/>#}
+{#    </form>#}
+
+    <div class="search bar6">
+            <form action="{% url 'findpage2' 1 %}" method="post">
+                {% csrf_token %}
+                <input type="text"  name="find2" placeholder="请输入您要搜索孩子的姓名...">
+                <button type="submit" class="buttonfind" value="查询姓名"></button>
+            </form>
+        </div>
+
+
+<table border="1" style="font-size: 30px;">
+    <thead>
+    <tr>
+{#        <td>序号</td>#}
+        <td style="width: 300px">照片</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>出生日期</td>
+        <td>失踪时间</td>
+        <td style="width: 300px">失踪地点</td>
+        <td style="width: 300px">详细信息</td>
+{#        <td>操作</td>#}
+    </tr>
+    </thead>
+    <tbody>
+    {% for port in childd %}
+        <tr>
+
+
+{#            <td>{{ port.id }}</td>#}
+            <td style="width: 300px; height:150px;"><img src="/static/pictures/{{ port.img }}" style="width: 250px;height: 250px;"></td>
+            <td >{{ port.name }}</td>
+            <td>{{ port.sex }}</td>
+            <td>{{ port.birthday }}</td>
+            <td>{{ port.time }}</td>
+            <td style="width: 300px">{{ port.place }}</td>
+            <td style="width: 300px">{{ port.detaile }}</td>
+{#            <td><a href="{% url 'delete' port.id %}" rel="external nofollow" >删除</a></td>#}
+
+        </tr>
+    {% endfor %}
+    </tbody>
+{#</table>#}
+{#    <a href="{% url 'findpage3' pIndex|add:-1 %}">上一页 </a>#}
+{#    {% for p in page_list %}#}
+{#    {% if p == pIndex %}#}
+{#        <a href="{% url 'findpage3' p %}" style="color: red">{{ p }}</a>&nbsp;&nbsp;#}
+{#    {% else %}#}
+{#        <a href="{% url 'findpage3' p %}">{{ p }}</a>&nbsp;&nbsp;#}
+{#    {% endif %}#}
+{#{% endfor %}#}
+{#    <a href="{% url 'findpage3' pIndex|add:1 %}">下一页 </a>#}
+</table>
+
+    </div>
+</center>
+{% endblock %}

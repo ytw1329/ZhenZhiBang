@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示照片</title>
+</head>
+<body>
+{% for image in all_images %}
+    <img src="/{{ image.img }}" style="width: 240px;height: 240px;">
+    <a href="{% url 'delete' image.id %}" rel="external nofollow" >删除</a>
+{% endfor %}
+<br/>
+<p style="text-align: center;color: #2b542c;font-size: 20px;">
+    <a href="{% url 'childshow' %}" rel="external nofollow"  rel="external nofollow" >返回</a>
+</p>
+<a href="{% url 'index' %}">首页</a>
+</body>
+</html>

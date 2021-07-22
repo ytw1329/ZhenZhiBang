@@ -1,0 +1,46 @@
+{% extends 'myapp/base2.html' %}
+
+{% block title %}
+    <title>登录</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./static/css/log_reg.css">
+    </head>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="wrap">
+    <div class="container">
+        <h1>个人登录</h1>
+        <form action="{% url 'logining' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name='name' placeholder="Your username"/>
+            <input type="password" name='password' placeholder="password" />
+
+            <input type="submit" value="登录"/>
+            <input type="reset" value="重置"/>
+
+            <p class="change_link" align="center">
+                <span class="text">Already a member ?</span>
+                <a href="{% url 'zhuce' %}" class="to_login"> 同意并注册 </a>
+            </p>
+        </form>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,144 @@
+{#{% extends 'myapp/base.html' %}#}
+{% block title %}
+<title>确认报名</title>
+{% endblock %}
+<style>
+    .pic{
+        margin-left: 33%;
+    }
+    .border{
+        border: #50a3a2;
+        font-size: 20px;
+        border-radius: 12px;
+        border-style: outset;
+        border-color: mediumslateblue;
+        margin-bottom: 5%;
+    }
+    .head{
+        position: relative;
+        flex-direction: row;
+        display: flex;
+    }
+    ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    }
+
+    li {
+        float:left;
+    }
+
+    li a {
+        display: block;
+        color: #666;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #ddd;
+    }
+
+    li a.active {
+        color: white;
+        background-color: palevioletred;
+    }
+    input:focus{
+    border-color: #66afe9;
+    border-radius: 20px;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+    #left{
+        float:left; width:33%; height:500px;
+    }
+    #right{
+        float:right;width:33%;height:500px;
+    }
+    #center{
+        height:500px;
+    }
+</style>
+{% block content %}
+    <div class="head">
+        <img src="/static/images/zzb.jpg" width="25%" height="10%">
+    </div>
+
+    <ul>
+        <li><a class="active">活动报名</a></li>
+        <li><a href="{% url 'findpage' %}">我参加的活动</a></li>
+        <li><a  href="{% url 'index' %}">返回首页</a></li>
+    </ul>
+    <div class="pic">
+        <img src="/static/images/海豚小女孩.png" height="40%">
+    </div>
+    <center>
+        <form action="{% url 'insert' %}" method="post">
+            {% csrf_token %}
+
+            <br>
+            <br>
+            <div id="left" >
+                    <img src="/static/images/眺望.png">
+                </div>
+                <div id="right" >
+                    <img src="/static/images/衣物.png">
+                </div>
+                <div id="center" >
+                    <center>
+                        <h2 style="font-family: Arial, Helvetica, sans-serif;">活动报名</h2>
+                        <table>
+                            <tr>
+                                <td style="font-size: 20px;">姓名：</td>
+                                <td><input  type="text" name="name" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 20px;">性别：</td>
+                                <td><input type="text" name="sex" /></td>
+                            </tr>
+                              <tr>
+                                <td style="font-size: 20px;">电话：</td>
+                                <td><input type="text" name="tel" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 20px;">活动标题：</td>
+                                <td><input type="text" name="title" value="{{ title }}" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 20px;">活动内容：</td>
+                                <td><input type="text" name="context" value="{{ context }}"/></td>
+                            </tr>
+                              <tr>
+                                <td style="font-size: 20px;">活动时间：</td>
+                                <td><input type="text" name="time" value="{{ time }}"/></td>
+                            </tr>
+                              <tr>
+                                <td style="font-size: 20px;">活动地点：</td>
+                                <td><input type="text" name="place" value="{{ place }}"/></td>
+                            </tr>
+                              <tr>
+                                <td style="font-size: 20px;">举办单位：</td>
+                                <td><input type="text" name="Organizer" value="{{ Organizer }}"/></td>
+                            </tr>
+                              <tr>
+                                <td style="font-size: 20px;">单位资质：</td>
+                                <td><input type="text" name="qualifications" value="{{ qualifications }}"/></td>
+                            </tr>
+
+                        </table>
+                        <br>
+                            <input type="submit" value="报名" style="background-color: pink;border-color: pink;">&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="reset" value="重置" style="background-color: pink;border-color: pink;">
+                    </center>
+                </div>
+                </div>
+</form>
+    </center>
+{% endblock %}
+

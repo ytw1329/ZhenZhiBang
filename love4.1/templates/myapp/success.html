@@ -1,0 +1,17 @@
+{% extends 'myapp/index.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+ <script>
+    var msg = confirm("登陆成功!!!");
+    if (msg) {
+        window.location.href = "{% url 'index' %}";
+    }else{
+        window.location.href = "{% url 'index' %}";
+    }
+
+</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'myapp/index.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+ <script>
+    var msg = confirm("修改成功，请重新登录!!!");
+    if (msg) {
+        window.location.href = "{% url 'dologout' %}";
+    }else{
+        window.location.href = "{% url 'index' %}";
+    }
+
+</script>
+{% endblock %}

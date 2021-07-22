@@ -1,0 +1,17 @@
+{% extends 'myapp/index.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+ <script>
+    var msg = confirm("捐赠成功！感谢您的帮助！");
+    if (msg) {
+        window.location.href = "{% url 'index' %}";
+    }else{
+        window.location.href = "{% url 'index' %}";
+    }
+
+</script>
+{% endblock %}

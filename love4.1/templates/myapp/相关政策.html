@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>常见罕见病</title>
+    <style type="text/css">
+    /* logo */
+   body{
+        background-image: url(/static/image/背景1.jpg);
+        background-repeat: no-repeat;
+        background-size: 603px 250px;
+        background-position: 15px 30px;
+		float: left;
+        }
+    /* 按钮 */
+.button {
+        background-color: pink;
+        border: none;
+        border-radius: 30px;
+        color: black;
+        padding: 25px 22px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        /* margin: 4px 2px; */
+        position: absolute;
+        /* margin-left:50%;
+        margin-top: 10%; */
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    }
+.button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    /* 左右框架 */
+    .maindiv{
+            width:1200px;
+            padding:10px;
+            overflow:hidden; /*关键*/
+            border:5px dashed white;
+            border-radius:25px;
+            margin-left: 200px;
+            }
+
+
+            .leftdiv{
+            float:left;
+            width:600px;
+            /* background-color:#CC6633; */
+            font-size: 23px;
+            font-weight: bold;
+            color: darkblue;
+            }
+
+            .rightdiv{
+            float:right;
+            width:600px;
+            /* background-color:#CC66FF; */
+            font-size: 23px;
+            font-weight: bold;
+            color: darkblue;
+            }
+
+            .centerdiv{
+            float:left;
+            position: center;
+            /* width:50px; */
+            border-right: 5px dashed white;
+            padding-bottom:1600px;  /*关键*/
+            margin-bottom:-1600px;  /*关键*/
+            }
+            p.double {border-style:double;
+                border-radius:25px;
+                /* height: 180px;
+                width: 500px; */
+                border-color: pink;
+                font-size: 20px;
+                font-weight: bold;
+                color: black;
+            }
+    </style>
+</head>
+<style>
+            #nav { width:310px; height: 400px; border: 1px solid #D4CD49; position:fixed;left:84%;top:40% }
+            .fuchuang{background-color: white;font-size: 20px}
+            .pic{text-align: center; font-size:10px;line-height:10px;color: black;font-size: 20px}
+        .smallimg{height: 230px;width: 300px;}
+      .text{
+          font-size: 30px;
+      }
+        </style>
+        <div id="nav" class="fuchuang">
+            <div class="pic">
+                <p>公益小贴士</p>
+                <div class="text"><p>禁止吸烟</p></div>
+                <p>摒弃吸烟陋习</p>
+                <p>创造健康新时尚</p>
+            </div>
+        <img class="smallimg" src="/static/images/浮窗/people.png">
+    </div>
+<div>
+    <button class="button button2" style=" margin-left:660px;margin-top: 145px;" onclick="window.location.href='{% url '罕见病' %}'">
+        关于罕见病</button>
+    <button class="button button2" style=" margin-left:880px;margin-top: 145px;"onclick="window.location.href='{% url '常见罕见病' %}'">
+        常见罕见病</button>
+    <button class="button button2" style=" margin-left:1100px;margin-top: 145px;" onclick="window.location.href='{% url '相关政策' %}">
+        相关政策</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;
+    <button class="button button2" style=" margin-left:1100px;margin-top: 145px;" onclick="window.location.href='{% url 'index' %}'">
+        返回首页</button>
+</div>
+<div class="maindiv" style="margin-top: 265px;">
+    <div class="leftdiv">目前我国对于罕见病有没有推出什么样政策?
+            <p class="double">
+                    &nbsp;&nbsp;&nbsp;&nbsp;最近几年，我们国家各级政府,对于罕见病是非常重视的。因为罕见病它是医学问题，但是它有强烈的社会属性，要解决罕见病的问题，应该由我们相关的政策来
+                    推动。据我们的统计，从1999年我们国家当时的CFDA,也就是国家药品监督管理总局,出第一个有关罕见病孤儿药的政策， 它包含在很多的疾病边了，但是第
+                    - -次谈到了罕见病。
+                    从此以后CFDA,也就是国家食品药品监督管理总局，到现在为止，每年几乎都有新的措施出台,深见病用药孤儿药开通绿色通道等等,且这些药品都在网上
+                    公示，确实推动了罕见病用药、孤儿药的引进、仿制和研发。
+                    外我国有关现病的政策，比如说国家卫健委在2012年就开始了,我们有一种罕见病, 就是苯丙酮尿症。这些孩子如果是新生儿出生的时候就发现是苯丙酮尿
+                    症,我们就有-种特殊的奶粉配方,一种特殊的奶粉喂养他, 他的生长发育几乎能达到正常孩子的水平,能够正常的发育、上学就业。
+                    <br>&nbsp;
+            </p>
+            <img src="/static/image/Teamwork Board.png">
+    </div>
+    <div class="centerdiv"></div>
+        <div class="rightdiv">
+                <img src="/static/image/Collaboration Develope Website.png">
+                <br><br><br><br>
+                罕见病国家有什么补助?
+                <p class="double">
+                        &nbsp;&nbsp;&nbsp;&nbsp;罕见病，国家通常都有补助，通过医疗保险进行补助，
+                        只要按时定量交了农村医保或者是城镇医保的，都可以，在进行大病重病或者是癌症病治疗的时候，有国家大部分报销，
+                        自己只需要出一点基础费用就可以了，所以一定要预先做好预防政策，为自己做好医疗保险和医疗保障。
+                        <br>&nbsp;
+                    </p>
+                    我国罕见病的治疗措施
+                    <p class="double">
+                        &nbsp;&nbsp;&nbsp;&nbsp;2020年国家医保药品目录谈判涉及162种药品，其中119种谈判成功，包含6个罕见
+                        病用药。此前，2019年国家医保药品目录新纳入了9种罕见病药品(6种通过纳入乙类目录)。至此，2021年3月1日
+                        正式实施的新医保目录中共有24个罕见病包含在此次药品目录中，涉及到55种药品，其中甲类15种，乙类40种。
+                        <br>&nbsp;
+                    </p>
+        </div>
+</div>
+</boby>
+</html>

@@ -1,0 +1,67 @@
+{#{% extends 'manager/base.html' %}#}
+{% block title %}
+<title>提示信息</title>
+    <head>
+    <style>
+        *{margin:0;padding:0;}
+.img{
+    /*margin: 0 50% 0 20%;width: 30%;background: darkblue;position: absolute;*/
+    width: 30%;height: 150px;margin: 0 55% 0 15%;position: absolute;
+}
+
+.button_div{
+    /*margin: 0 5% 0 55%;width: 40%;background: red;position: absolute;*/
+    width: 40%;height: 150px;margin:0 10% 0 50%;position: absolute;
+}
+
+.button{
+    color: palevioletred;
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+    border-radius: 12px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 15px;
+    margin: 0 auto;
+    text-decoration: none;
+    display: inline-block;
+    }
+
+    </style>
+    </head>
+{% endblock %}
+
+    {% block content %}
+
+        <div>
+     <div class="img">
+            <img src="/static/images/zzb.jpg" width="100%" height="150px">
+     </div>
+     <div class="button_div">
+     <br><br><br><br>
+            <a href="{% url 'Manageshowdata' %}"><button class="button">浏览志愿者信息</button></a>
+            <a href="{% url 'Manageadd' %}"><button class="button">添加志愿者信息</button></a>
+            <a href="{% url 'Manageadddata' %}"><button class="button">发布活动</button></a>
+            <a href="{% url 'upload' %}"><button class="button">走失儿童发布</button></a>
+            <a href="{% url 'childshow' %}"><button class="button">走失儿童信息</button></a>
+            <a href="{% url 'ManageShenHe' %}"><button class="button">活动审核</button></a>
+
+            <a href="{% url 'admindologout' %}">
+                {% if request.session.guanliyuan_user.name %}
+                    <button style="margin-left: 76%" class="button">{{ request.session.guanliyuan_user.name }}
+                    退出
+                {% endif %}</button>
+            </a><br>
+     </div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+<hr>
+
+        <center>
+        <CENTER>{{ info }}</CENTER>
+        </center>
+
+    {% endblock %}
+
+
+

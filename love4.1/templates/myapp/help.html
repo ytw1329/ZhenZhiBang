@@ -1,0 +1,147 @@
+{#{% extends 'myapp/base.html' %}#}
+
+{% block title %}
+    <title>帮助</title>
+    <head>
+
+    </head>
+    <style>
+        .pic{
+            position: center;
+        flex-direction: row;
+        display: flex;
+            margin-left:18.5%;
+        }
+     .head{
+         margin-left: 100px;
+        position: relative;
+        flex-direction: row;
+        display: flex;
+        }
+        .maindiv{
+            width:1000px;
+            padding:10px;
+            overflow:hidden; /*关键*/
+            border:5px solid white;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            position: relative;
+            flex-direction: row;
+            display: flex;
+            }
+
+
+            .leftdiv{
+            float:left;
+            width:500px;
+                margin: 10px;
+            {#background-color:white;#}
+            }
+
+            .rightdiv{
+            float:right;
+            width:500px;
+                margin: 10px;
+
+            {#background-color:white;#}
+
+            }
+
+            .centerdiv {
+                float: left;
+                position: center;
+                /* width:50px; */
+                border-right: 5px dashed blue;
+                padding-bottom: 1600px; /*关键*/
+                margin-bottom: -1600px; /*关键*/
+            }
+        .biaoti{
+            font-size: 25px;
+        }
+        .huati{
+            font-size: 20px;
+            float: left;
+            color: lightslategrey;
+        }
+         .xinwen{
+                font-size: 20px;
+                float: left;
+                color:#66afe9;
+            }
+        .juankuan{
+            color: white;
+            font-size: 30px;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+<div style="background: #022cbc;">
+<div class="head">
+        <img src=".\static\images\help.jpg" width="70% ">
+        <img src=".\static\images\二维码\Qhelp.jpg" width="20%">
+    </div>
+
+<center>
+<div class="maindiv">
+        <div class="leftdiv">
+            <span class="biaoti">最新资讯</span><br>
+                <br><a class="huati" href="https://weibo.com/7373111326/KpJOKfkCO">新闻——K226次列车请求紧急救援></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E5%A4%9A%E5%AE%B6%E4%BC%81%E4%B8%9A%E6%8D%90%E6%AC%BE%E9%A9%B0%E6%8F%B4%E6%B2%B3%E5%8D%97%23%26t%3D3">话题——#多家企业捐款驰援河南>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E8%83%A1%E8%BE%A3%E6%B1%A4%E6%8C%BA%E4%BD%8F%E5%95%8A%E7%83%AD%E5%B9%B2%E9%9D%A2%E6%9D%A5%E4%BA%86%23%26t%3D3">话题——#胡辣汤挺住啊热干面来了>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E9%83%91%E5%B7%9E%E8%A1%97%E5%A4%B4%E4%BC%97%E4%BA%BA%E6%8A%B1%E5%9B%A2%E5%96%8A%E5%8F%A3%E5%8F%B7%E8%BF%87%E9%A9%AC%E8%B7%AF%23%26t%3D3">话题——#郑州街头众人抱团喊口号过马路>></a><br>
+                <br><a class="huati" href="https://news.cctv.com/2021/07/21/ARTIEBYbP2kSnfiH3DtEh74O210721.shtml?spm=C94212.PBZrLs0D62ld.EKoevbmLqVHC.5">新闻——河南暴雨成灾   各方紧急救援>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E9%83%91%E5%B7%9E%E9%9B%A8%E5%8A%BF%E5%86%8D%E6%AC%A1%E5%8A%A0%E5%BC%BA%23%26t%3D3">话题——#郑州雨势再次加强>></a><br>
+                <br><a class="huati" href="https://news.cctv.com/2021/07/21/ARTIaD4TdOAttImpEp6QXCar210721.shtml?spm=C94212.PBZrLs0D62ld.EKoevbmLqVHC.16">新闻——专家解读：河南此轮强降雨为何下个不停？</a><br>
+                <br><a class="huati" href="https://news.cctv.com/2021/07/21/ARTIslFlhGpY3IcTzQHNJWij210721.shtml?spm=C94212.PBZrLs0D62ld.EKoevbmLqVHC.101">新闻——暴雨！河南多地启动防汛IV级应急响应>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E9%83%91%E5%B7%9E%E6%9A%B4%E9%9B%A8%E5%8E%9F%E5%9B%A0%23%26t%3D3">话题——#郑州暴雨原因>></a><br>
+
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%E5%86%99%E5%9C%A8%E6%AD%BB%E9%87%8C%E9%80%83%E7%94%9F%E5%90%8E%26t%3D3">话题——#写在死里逃生后>></a><br>
+                <br><a class="huati" href="https://news.cctv.com/2021/07/21/ARTIy7aBo7utaJtAlVJYQdSB210721.shtml?spm=C94212.PBZrLs0D62ld.EKoevbmLqVHC.123">新闻——自然资源部启动地质灾害防御Ⅲ级响应>></a><br>
+                <br><a class="huati" href="https://news.cctv.com/2021/07/21/ARTIg79KcZxGDEKF4SJYN5zt210721.shtml?spm=C94212.PBZrLs0D62ld.EKoevbmLqVHC.145">新闻——河南遭遇强降雨 北京71趟始发列车停运>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E9%83%91%E5%A4%A7%E4%B8%80%E9%99%84%E9%99%A2ICU%E5%B7%B2%E6%81%A2%E5%A4%8D%E4%BE%9B%E7%94%B5%23%26t%3D3">话题——#郑大一附院ICU已恢复供电>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E8%85%BE%E8%AE%AF%E5%AE%A3%E5%B8%83%E6%8D%90%E6%AC%BE1%E4%BA%BF%E5%85%83%E9%A9%B0%E6%8F%B4%E6%B2%B3%E5%8D%97%23%26t%3D3">话题——#腾讯宣布捐款1亿元驰援河南>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E8%AF%B7%E8%AE%A9%E6%88%91%E4%B8%8A%23%26t%3D3">话题——#请让我上>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%E9%83%91%E5%B7%9E%E4%B8%9C%E7%AB%99%20%E9%9F%B3%E4%B9%90%E6%98%AF%E6%9C%89%E5%8A%9B%E9%87%8F%E7%9A%84%26t%3D3">话题——#郑州东站  音乐是有力量的>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E9%83%91%E5%B7%9E150%E5%90%8D%E5%B9%BC%E5%84%BF%E5%9B%AD%E5%B8%88%E7%94%9F%E8%A2%AB%E6%88%90%E5%8A%9F%E6%95%91%E5%87%BA%23%26t%3D3">话题——#郑州150名幼儿园师生被成功救出>></a><br>
+                <br><a class="huati" href="https://weibo.com/search?containerid=100103type%3D1%26q%3D%23%E7%81%AB%E7%AE%AD%E5%86%9B%E5%A5%94%E8%B5%B4%E9%83%91%E5%B7%9E%23%26t%3D3">话题——#火箭军奔赴郑州>></a><br>
+        </div>
+        <div class="centerdiv"></div>
+        <div class="rightdiv">
+            <span class="biaoti">#暴雨互助</span><br>
+
+            <br><a class="huati" href="https://weibo.com/1618051664/KpFW0Deg4">寻找平凡英雄>></a><br>
+            <br><a class="huati" href="https://weibo.com/1266334520/KpFXd3ZAf">听障群体电话救援求助方法>></a><br>
+            <br><a class="huati" href="https://weibo.com/1266334520/KpFXd3ZAf">洛阳27个城市易捞点的位置——注意避让！>></a><br>
+            <br><a class="huati" href="https://weibo.com/6307103776/KpKhG97lg">被困求救！巩义市大峪沟镇杏花村 >></a><br>
+            <br><a class="huati" href="https://weibo.com/6120932429/KpKhIc69E">被困求救！荥阳贾峪镇恒大山水城3期130号楼>></a><br>
+            <br><a class="huati" href="https://weibo.com/5908175173/KpKhyt5UF">郑州市儿童福利院急需爱心物资>></a><br>
+            <br><a class="huati" href="https://weibo.com/7305594725/KpIBOwKqc">路面坍塌！及时撤离!>></a><br>
+            <br><a class="huati" href="https://weibo.com/5607032695/KpKrwkvz1">寻人启事！急急急！>></a><br>
+            <br><a class="huati" href="https://weibo.com/7413653809/KpJGFlxxh">物资提供：郑东新区昆丽河小学>></a><br>
+            <br><a class="huati" href="https://weibo.com/5514146941/KpFJr4yXt">提醒！洪水后的自来水不能喝！>></a><br>
+            <br><a class="huati" href="https://weibo.com/2476316402/KpFugjbIn">【目前已知漏电地区！】>></a><br>
+            <br><a class="huati" href="https://weibo.com/2617786612/KpGQwyP9s">河南暴雨救援>></a><br>
+            <br><a class="huati" href="https://weibo.com/5855990923/KpKtvdNjV">被困求救！恒泽物流园银泰玻璃厂门口>></a><br>
+            <br><a class="huati" href="https://weibo.com/2858270197/KpKfT3X4M#comment">汇总一些救援力量！>></a><br>
+            <br><a class="huati" href="https://weibo.com/1956699722/KpKi4EqsY">抢先保供加油站信息表（郑州地区）>></a><br>
+            <br><a class="huati" href="https://weibo.com/5628415998/KpKof4V5T">被困求救！金水区青年路>></a><br>
+            <br><a class="huati" href="https://weibo.com/2549228714/KpKm5rFCn">实用信息汇总>></a><br>
+            <br><a class="huati" href="https://weibo.com/7461439068/KpKuXozeN">物资提供！郑州大润发>></a><br>
+        </div>
+</div>
+    <div class="juankuan">
+        <h1>
+            郑州红十字会接收社会捐赠方式公布
+        </h1>
+    </div>
+        <div class="pic">
+            <img src="/static/images/众志成城.png" height="600px" >
+            <img src="/static/images/河南救援.jpg">
+            <img src="/static/images/团结一心.png" height="600px">
+        </div>
+
+</center>
+</div>
+{% endblock %}

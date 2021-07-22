@@ -1,0 +1,152 @@
+{#{% extends 'myapp/base.html' %}#}
+{% block title %}
+<title>确认报名</title>
+{% endblock %}
+<style>
+
+    .border{
+        border: #50a3a2;
+        font-size: 20px;
+        border-radius: 12px;
+        border-style: outset;
+        border-color: mediumslateblue;
+        margin-bottom: 5%;
+    }
+    .head{
+        position: relative;
+        flex-direction: row;
+        display: flex;
+    }
+    ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    }
+
+    li {
+        float:left;
+
+    }
+    .li button:hover,.li button:active{
+        background: black;
+    }
+
+    li a {
+        display: block;
+        color: #666;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #ddd;
+    }
+
+    li a.active {
+        color: white;
+        background-color: palevioletred;
+    }
+    input:focus{
+    border-color: #66afe9;
+    border-radius: 20px;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+    #left{
+        float:left; width:33%; height:500px;
+    }
+    #right{
+        float:right;width:33%;height:500px;
+    }
+    #center{
+        height:500px;
+    }
+</style>
+{% block content %}
+<style>
+            #nav { width:310px; height: 400px; border: 1px solid #D4CD49; position:fixed;left:84%;top:40% }
+            .fuchuang{background-color: white;font-size: 20px}
+            .pic{text-align: center; font-size:10px;line-height:10px;color: black;font-size: 20px}
+        .smallimg{height: 230px;width: 300px;}
+      .text{
+          font-size: 30px;
+      }
+        </style>
+        <div id="nav" class="fuchuang">
+            <div class="pic">
+                <p>公益小贴士</p>
+                <div class="text"><p>关爱残疾人</p></div>
+                <p>你我同在一片蓝天下</p>
+            </div>
+        <img class="smallimg" src="/static/images/浮窗/Room.png">
+    </div>
+    <div class="head">
+        <img src="/static/images/zzb.jpg" width="25%" height="10%">
+    </div>
+
+    <ul>
+        <li><a class="active">活动报名</a></li>
+        <li>{% if request.session.love_user.name %}
+        <li><form action="{% url 'findpage3'  %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4" name="find3"  value="{{ request.session.love_user.name }}" readonly="readonly"  />
+        <button class="abc" style="width: 150px; /* 宽度 */
+                                                    height: 50px; /* 高度 */
+                                                    border-width: 0px; /* 边框宽度 */
+                                                    border-radius: 0px; /* 边框半径 */
+                                                    background: #f3f3f3; /* 背景颜色 */#}
+                                                    outline: none; /* 不显示轮廓线 */
+                                                    font-family: Microsoft YaHei; /* 设置字体 */
+                                                    color: #6c6c6c; /* 字体颜色 */
+                                                    font-size: 17px; /* 字体大小 */">我参与的活动</button>
+    </form></li>
+    {% endif %}
+    </li>
+{#        <li><a href="{% url 'findpage3' 1 %}">我参加的活动</a></li>#}
+        <li><a  href="{% url 'index' %}">返回首页</a></li>
+    </ul>
+    <div class="pic">
+        <img src="/static/images/海豚小女孩.png"  height="40%">
+    </div>
+<center>
+        <form action="{% url 'insert' %}" method="post">
+            {% csrf_token %}
+            <table border="1" style="color: dodgerblue"  class="border">
+        <thead>
+        <tr>
+{#            <td>序号</td>#}
+            <td>活动标题</td>
+            <td>活动内容</td>
+            <td>活动时间</td>
+            <td>活动地点</td>
+            <td>举办单位</td>
+            <td>单位资质</td>
+            <td>我要报名</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for port in activities %}
+        <tr>
+{#            <td>{{ port.id }}</td>#}
+            <td>{{ port.title }}</td>
+            <td>{{ port.context }}</td>
+            <td>{{ port.time }}</td>
+            <td>{{ port.place }}</td>
+            <td>{{ port.Organizer }}</td>
+            <td>{{ port.qualifications }}</td>
+            <td><a href="{% url 'BAOmingchuancan' port.id %}">报名</a></td>
+{#          s#}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+</form>
+    </center>
+{% endblock %}
